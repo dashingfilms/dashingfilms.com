@@ -567,7 +567,7 @@
   function changeSlide(dir) { goSlide(current + dir); }
   setInterval(() => changeSlide(1), 5000);
 
-  // PRODUCTIONS SLIDER - single card, data-driven, no stacking issues
+  // PRODUCTIONS SLIDER
   const films = [
     { title: 'Mad Lovers',        id: '5Lrk3BOTHJg' },
     { title: 'Finding Fate',      id: 'DsUCvSJHmaM' },
@@ -583,6 +583,7 @@
   ];
 
   let prodIdx = 0;
+  let prodPaused = false;
   const prodCard  = document.getElementById('prodCard');
   const prodThumb = document.getElementById('prodThumb');
   const prodTitle = document.getElementById('prodTitle');
@@ -599,20 +600,32 @@
   function showFilm(n) {
     prodIdx = (n + films.length) % films.length;
     const f = films[prodIdx];
-    prodCard.href = 'https://youtu.be/' + f.id;
     prodThumb.src = 'https://img.youtube.com/vi/' + f.id + '/hqdefault.jpg';
     prodThumb.alt = f.title;
     prodTitle.textContent = f.title;
+    // Store ID directly on the element — no href dependency
+    prodCard.dataset.ytid = f.id;
     document.querySelectorAll('.prod-dot').forEach((d, i) => d.classList.toggle('active', i === prodIdx));
   }
+
+  // Click always reads the data-ytid at the moment of click
+  prodCard.addEventListener('click', function(e) {
+    e.preventDefault();
+    const ytid = this.dataset.ytid;
+    window.open('https://youtu.be/' + ytid, '_blank');
+  });
+
+  // Pause auto-slide when user hovers over the card
+  prodCard.addEventListener('mouseenter', () => { prodPaused = true; });
+  prodCard.addEventListener('mouseleave', () => { prodPaused = false; });
 
   function changeProd(dir) { showFilm(prodIdx + dir); }
 
   // Init first film
   showFilm(0);
 
-  // Auto-advance every 4 seconds
-  setInterval(() => changeProd(1), 4000);
+  // Auto-advance every 5 seconds, pauses on hover
+  setInterval(() => { if (!prodPaused) changeProd(1); }, 5000);
 
   // FAQ
   function toggleFaq(btn) {
