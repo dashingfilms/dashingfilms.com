@@ -164,11 +164,13 @@
     /* ── PRODUCTIONS ── */
     #productions { background: var(--dark); }
     #productions .section-title { color: #fff; }
-    .prod-slider { position: relative; max-width: 600px; margin: 0 auto; padding: 0 52px; }
+    .prod-slider { position: relative; max-width: 560px; margin: 0 auto; padding: 0 52px; }
     .prod-slider-viewport { overflow: visible; width: 100%; }
-    .prod-track { position: relative; width: 100%; }
-    .prod-card { width: 100%; border-radius: 12px; overflow: hidden; position: absolute; top: 0; left: 0; cursor: pointer; text-decoration: none; display: block; transition: opacity 0.6s ease; }
-    .prod-card img { width: 100%; height: 260px; object-fit: cover; display: block; }
+    .prod-card { width: 100%; border-radius: 12px; overflow: hidden; cursor: pointer; text-decoration: none; display: block; transition: opacity 0.3s ease; }
+    .prod-card img { width: 100%; height: 280px; object-fit: cover; display: block; }
+    .prod-dots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; flex-wrap: wrap; }
+    .prod-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: background 0.3s; }
+    .prod-dot.active { background: var(--primary-light); }
     .prod-card-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #3a006f, #c000e0); display: flex; align-items: center; justify-content: center; }
     .prod-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 40%, transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
     .prod-badge { font-size: 0.7rem; font-weight: 700; background: var(--gradient); color: #fff; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 6px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
@@ -236,7 +238,7 @@
       section { padding: 60px 20px; }
       .form-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .prod-slider { padding: 0 44px; max-width: 100%; }
+      .prod-slider { padding: 0 40px; max-width: 100%; }
       .prod-card img { height: 220px; }
 
       /* ── MOBILE HERO: tall portrait like BN Media Films ── */
@@ -434,111 +436,18 @@
   <div class="prod-slider">
     <button class="prod-btn prev" onclick="changeProd(-1)">&#8592;</button>
     <div class="prod-slider-viewport">
-      <div class="prod-track" id="prodTrack">
-
-        <a class="prod-card" href="https://youtu.be/5Lrk3BOTHJg" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/5Lrk3BOTHJg/hqdefault.jpg" alt="Mad Lovers"/>
-          <div class="prod-overlay">
-            <span class="prod-badge">Film</span>
-            <div class="prod-title">Mad Lovers</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </a>
-
-        <a class="prod-card" href="https://youtu.be/DsUCvSJHmaM" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/DsUCvSJHmaM/hqdefault.jpg" alt="Finding Fate"/>
-          <div class="prod-overlay">
-            <span class="prod-badge">Film</span>
-            <div class="prod-title">Finding Fate</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </a>
-
-        <a class="prod-card" href="https://youtu.be/TqjjbiTYL1Q" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/TqjjbiTYL1Q/hqdefault.jpg" alt="Blindspot"/>
-          <div class="prod-overlay">
-            <span class="prod-badge">Film</span>
-            <div class="prod-title">Blindspot</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </a>
-
-        <a class="prod-card" href="https://youtu.be/iso41rJ3kh8" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/iso41rJ3kh8/hqdefault.jpg" alt="Chaos at Christmas"/>
-          <div class="prod-overlay">
-            <span class="prod-badge">Film</span>
-            <div class="prod-title">Chaos at Christmas</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </a>
-
-        <a class="prod-card" href="https://youtu.be/6yxxq5xp3Mk" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/6yxxq5xp3Mk/hqdefault.jpg" alt="Love Sighted"/>
-          <div class="prod-overlay">
-            <span class="prod-badge">Film</span>
-            <div class="prod-title">Love Sighted</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </a>
-
-        <a class="prod-card" href="https://youtu.be/uC8vGrZmAaI" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/uC8vGrZmAaI/hqdefault.jpg" alt="Forgiven Hearts"/>
-          <div class="prod-overlay">
-            <span class="prod-badge">Film</span>
-            <div class="prod-title">Forgiven Hearts</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </a>
-
-        <a class="prod-card" href="https://youtu.be/Lg0YqmPwij0" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/Lg0YqmPwij0/hqdefault.jpg" alt="Perfect for Me"/>
-          <div class="prod-overlay">
-            <span class="prod-badge">Film</span>
-            <div class="prod-title">Perfect for Me</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </a>
-
-        <a class="prod-card" href="https://youtu.be/3vG-PXgqs10" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/3vG-PXgqs10/hqdefault.jpg" alt="Love in Shame"/>
-          <div class="prod-overlay">
-            <span class="prod-badge">Film</span>
-            <div class="prod-title">Love in Shame</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </a>
-
-        <a class="prod-card" href="https://youtu.be/wxpcsG1E6vk" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/wxpcsG1E6vk/hqdefault.jpg" alt="Alone with Trouble"/>
-          <div class="prod-overlay">
-            <span class="prod-badge">Film</span>
-            <div class="prod-title">Alone with Trouble</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </a>
-
-        <a class="prod-card" href="https://youtu.be/GunYT2L8JLs" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/GunYT2L8JLs/hqdefault.jpg" alt="Sisters Sham"/>
-          <div class="prod-overlay">
-            <span class="prod-badge">Film</span>
-            <div class="prod-title">Sisters Sham</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </a>
-
-        <a class="prod-card" href="https://youtu.be/yoDfY28is2Y" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/yoDfY28is2Y/hqdefault.jpg" alt="Gifts"/>
-          <div class="prod-overlay">
-            <span class="prod-badge">Film</span>
-            <div class="prod-title">Gifts</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </a>
-
-      </div>
+      <a class="prod-card" id="prodCard" href="#" target="_blank" rel="noopener">
+        <img id="prodThumb" src="" alt=""/>
+        <div class="prod-overlay">
+          <span class="prod-badge">Film</span>
+          <div class="prod-title" id="prodTitle"></div>
+          <div class="prod-watch">▶ Watch on YouTube</div>
+        </div>
+      </a>
     </div>
     <button class="prod-btn next" onclick="changeProd(1)">&#8594;</button>
   </div>
+  <div class="prod-dots" id="prodDots"></div>
 </section>
 
 <!-- CONTACT -->
@@ -658,45 +567,59 @@
   function changeSlide(dir) { goSlide(current + dir); }
   setInterval(() => changeSlide(1), 5000);
 
-  // PRODUCTIONS SLIDER - FADE MODE (no translateX, clicks always correct)
-  const prodTrack = document.getElementById('prodTrack');
-  const prodCards = Array.from(document.querySelectorAll('.prod-card'));
-  let prodIdx = 0;
+  // PRODUCTIONS SLIDER - single card, data-driven, no stacking issues
+  const films = [
+    { title: 'Mad Lovers',        id: '5Lrk3BOTHJg' },
+    { title: 'Finding Fate',      id: 'DsUCvSJHmaM' },
+    { title: 'Blindspot',         id: 'TqjjbiTYL1Q' },
+    { title: 'Chaos at Christmas',id: 'iso41rJ3kh8' },
+    { title: 'Love Sighted',      id: '6yxxq5xp3Mk' },
+    { title: 'Forgiven Hearts',   id: 'uC8vGrZmAaI' },
+    { title: 'Perfect for Me',    id: 'Lg0YqmPwij0' },
+    { title: 'Love in Shame',     id: '3vG-PXgqs10' },
+    { title: 'Alone with Trouble',id: 'wxpcsG1E6vk' },
+    { title: 'Sisters Sham',      id: 'GunYT2L8JLs' },
+    { title: 'Gifts',             id: 'yoDfY28is2Y' },
+  ];
 
-  // Make all cards stack on top of each other
-  prodCards.forEach((c, i) => {
-    c.style.position = 'absolute';
-    c.style.top = '0';
-    c.style.left = '0';
-    c.style.width = '100%';
-    c.style.opacity = i === 0 ? '1' : '0';
-    c.style.transition = 'opacity 0.6s ease';
-    c.style.pointerEvents = i === 0 ? 'auto' : 'none';
-    c.style.minWidth = 'unset';
+  let prodIdx = 0;
+  const prodCard  = document.getElementById('prodCard');
+  const prodThumb = document.getElementById('prodThumb');
+  const prodTitle = document.getElementById('prodTitle');
+  const prodDotsEl = document.getElementById('prodDots');
+
+  // Build dots
+  films.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'prod-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => showFilm(i);
+    prodDotsEl.appendChild(d);
   });
 
-  // Set container height to match card
-  prodTrack.style.position = 'relative';
-  prodTrack.style.height = prodCards[0].offsetHeight + 'px';
-  prodTrack.style.transform = 'none';
-
-  function showProd(n) {
-    prodCards[prodIdx].style.opacity = '0';
-    prodCards[prodIdx].style.pointerEvents = 'none';
-    prodIdx = (n + prodCards.length) % prodCards.length;
-    prodCards[prodIdx].style.opacity = '1';
-    prodCards[prodIdx].style.pointerEvents = 'auto';
+  function showFilm(n) {
+    prodIdx = (n + films.length) % films.length;
+    const f = films[prodIdx];
+    // Fade out
+    prodCard.style.opacity = '0';
+    setTimeout(() => {
+      prodThumb.src = 'https://img.youtube.com/vi/' + f.id + '/hqdefault.jpg';
+      prodThumb.alt = f.title;
+      prodTitle.textContent = f.title;
+      prodCard.href = 'https://youtu.be/' + f.id;
+      // Fade in
+      prodCard.style.opacity = '1';
+    }, 300);
+    // Update dots
+    document.querySelectorAll('.prod-dot').forEach((d, i) => d.classList.toggle('active', i === prodIdx));
   }
 
-  function changeProd(dir) { showProd(prodIdx + dir); }
+  function changeProd(dir) { showFilm(prodIdx + dir); }
+
+  // Init first film
+  showFilm(0);
 
   // Auto-advance every 4 seconds
   setInterval(() => changeProd(1), 4000);
-
-  // Fix height on resize
-  window.addEventListener('resize', () => {
-    prodTrack.style.height = prodCards[prodIdx].offsetHeight + 'px';
-  });
 
   // FAQ
   function toggleFaq(btn) {
