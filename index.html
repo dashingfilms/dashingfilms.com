@@ -567,7 +567,7 @@
   function changeSlide(dir) { goSlide(current + dir); }
   setInterval(() => changeSlide(1), 5000);
 
-  // PRODUCTIONS SLIDER
+  // PRODUCTIONS SLIDER - preload all images first
   const films = [
     { title: 'Mad Lovers',        id: '5Lrk3BOTHJg' },
     { title: 'Finding Fate',      id: 'DsUCvSJHmaM' },
@@ -582,11 +582,18 @@
     { title: 'Gifts',             id: 'yoDfY28is2Y' },
   ];
 
+  // Preload ALL images into browser cache immediately
+  films.forEach(f => {
+    const img = new Image();
+    img.src = 'https://img.youtube.com/vi/' + f.id + '/hqdefault.jpg';
+    f.cachedImg = img; // keep reference so browser doesn't discard
+  });
+
   let prodIdx = 0;
   let prodPaused = false;
-  const prodCard  = document.getElementById('prodCard');
-  const prodThumb = document.getElementById('prodThumb');
-  const prodTitle = document.getElementById('prodTitle');
+  const prodCard   = document.getElementById('prodCard');
+  const prodThumb  = document.getElementById('prodThumb');
+  const prodTitle  = document.getElementById('prodTitle');
   const prodDotsEl = document.getElementById('prodDots');
 
   // Build dots
@@ -600,40 +607,26 @@
   function showFilm(n) {
     prodIdx = (n + films.length) % films.length;
     const f = films[prodIdx];
-    // Store the target ID so we can verify on load
-    const targetId = f.id;
-    // Hide title while image loads
-    prodTitle.textContent = '...';
-    prodCard.dataset.ytid = targetId;
-    // Load new image - only update title when image is actually loaded
-    prodThumb.onload = function() {
-      // Double-check we're still on the same film (not already moved on)
-      if (prodCard.dataset.ytid === targetId) {
-        prodTitle.textContent = films.find(x => x.id === targetId).title;
-      }
-    };
-    prodThumb.src = 'https://img.youtube.com/vi/' + targetId + '/hqdefault.jpg';
-    prodThumb.alt = f.title;
+    // All three update simultaneously from cached image
+    prodThumb.src  = f.cachedImg.src;
+    prodThumb.alt  = f.title;
+    prodTitle.textContent = f.title;
+    prodCard.dataset.ytid = f.id;
     document.querySelectorAll('.prod-dot').forEach((d, i) => d.classList.toggle('active', i === prodIdx));
   }
 
-  // Click always reads the data-ytid at the moment of click
+  // Click reads data-ytid at exact moment of click
   prodCard.addEventListener('click', function(e) {
     e.preventDefault();
-    const ytid = this.dataset.ytid;
-    window.open('https://youtu.be/' + ytid, '_blank');
+    window.open('https://youtu.be/' + this.dataset.ytid, '_blank');
   });
 
-  // Pause auto-slide when user hovers over the card
   prodCard.addEventListener('mouseenter', () => { prodPaused = true; });
   prodCard.addEventListener('mouseleave', () => { prodPaused = false; });
 
   function changeProd(dir) { showFilm(prodIdx + dir); }
 
-  // Init first film
   showFilm(0);
-
-  // Auto-advance every 8 seconds, pauses on hover
   setInterval(() => { if (!prodPaused) changeProd(1); }, 8000);
 
   // FAQ
