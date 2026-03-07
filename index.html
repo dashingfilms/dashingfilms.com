@@ -164,12 +164,11 @@
     /* ── PRODUCTIONS ── */
     #productions { background: var(--dark); }
     #productions .section-title { color: #fff; }
-    .prod-slider { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 52px; }
-    .prod-slider-viewport { overflow: hidden; width: 100%; }
-    .prod-track { display: flex; gap: 20px; transition: transform 0.5s ease; }
-    .prod-card { min-width: 300px; border-radius: 8px; overflow: hidden; position: relative; flex-shrink: 0; cursor: pointer; text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s; }
-    .prod-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(192,0,224,0.35); }
-    .prod-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .prod-slider { position: relative; max-width: 600px; margin: 0 auto; padding: 0 52px; }
+    .prod-slider-viewport { overflow: visible; width: 100%; }
+    .prod-track { position: relative; width: 100%; }
+    .prod-card { width: 100%; border-radius: 12px; overflow: hidden; position: absolute; top: 0; left: 0; cursor: pointer; text-decoration: none; display: block; transition: opacity 0.6s ease; }
+    .prod-card img { width: 100%; height: 260px; object-fit: cover; display: block; }
     .prod-card-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #3a006f, #c000e0); display: flex; align-items: center; justify-content: center; }
     .prod-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 40%, transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
     .prod-badge { font-size: 0.7rem; font-weight: 700; background: var(--gradient); color: #fff; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 6px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
@@ -237,9 +236,8 @@
       section { padding: 60px 20px; }
       .form-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .prod-slider { padding: 0 44px; }
-      .prod-card { min-width: calc(100vw - 108px); }
-      .prod-card img { height: 210px; }
+      .prod-slider { padding: 0 44px; max-width: 100%; }
+      .prod-card img { height: 220px; }
 
       /* ── MOBILE HERO: tall portrait like BN Media Films ── */
       .hero {
@@ -660,34 +658,45 @@
   function changeSlide(dir) { goSlide(current + dir); }
   setInterval(() => changeSlide(1), 5000);
 
-  // PRODUCTIONS SLIDER
-  let prodIdx = 0;
+  // PRODUCTIONS SLIDER - FADE MODE (no translateX, clicks always correct)
   const prodTrack = document.getElementById('prodTrack');
+  const prodCards = Array.from(document.querySelectorAll('.prod-card'));
+  let prodIdx = 0;
 
-  function getVisibleCount() {
-    return window.innerWidth <= 768 ? 1 : 3;
+  // Make all cards stack on top of each other
+  prodCards.forEach((c, i) => {
+    c.style.position = 'absolute';
+    c.style.top = '0';
+    c.style.left = '0';
+    c.style.width = '100%';
+    c.style.opacity = i === 0 ? '1' : '0';
+    c.style.transition = 'opacity 0.6s ease';
+    c.style.pointerEvents = i === 0 ? 'auto' : 'none';
+    c.style.minWidth = 'unset';
+  });
+
+  // Set container height to match card
+  prodTrack.style.position = 'relative';
+  prodTrack.style.height = prodCards[0].offsetHeight + 'px';
+  prodTrack.style.transform = 'none';
+
+  function showProd(n) {
+    prodCards[prodIdx].style.opacity = '0';
+    prodCards[prodIdx].style.pointerEvents = 'none';
+    prodIdx = (n + prodCards.length) % prodCards.length;
+    prodCards[prodIdx].style.opacity = '1';
+    prodCards[prodIdx].style.pointerEvents = 'auto';
   }
 
-  function updateProd() {
-    const cards = prodTrack.querySelectorAll('.prod-card');
-    const cardW = cards[0].offsetWidth + 20; // 20 = gap
-    prodTrack.style.transform = `translateX(-${prodIdx * cardW}px)`;
-  }
-
-  function changeProd(dir) {
-    const cards = prodTrack.querySelectorAll('.prod-card');
-    const visible = getVisibleCount();
-    const maxIdx = cards.length - visible;
-    prodIdx = prodIdx + dir;
-    // Loop around
-    if (prodIdx > maxIdx) prodIdx = 0;
-    if (prodIdx < 0) prodIdx = maxIdx;
-    updateProd();
-  }
+  function changeProd(dir) { showProd(prodIdx + dir); }
 
   // Auto-advance every 4 seconds
   setInterval(() => changeProd(1), 4000);
-  window.addEventListener('resize', updateProd);
+
+  // Fix height on resize
+  window.addEventListener('resize', () => {
+    prodTrack.style.height = prodCards[prodIdx].offsetHeight + 'px';
+  });
 
   // FAQ
   function toggleFaq(btn) {
