@@ -166,8 +166,8 @@
     #productions .section-title { color: #fff; }
     .prod-slider { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 52px; }
     .prod-slider-viewport { overflow: hidden; width: 100%; }
-    .prod-track { display: flex; gap: 24px; transition: transform 0.5s ease; }
-    .prod-card { min-width: 280px; border-radius: 8px; overflow: hidden; position: relative; flex-shrink: 0; cursor: pointer; text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s; }
+    .prod-track { display: flex; gap: 20px; transition: transform 0.5s ease; }
+    .prod-card { min-width: 300px; border-radius: 8px; overflow: hidden; position: relative; flex-shrink: 0; cursor: pointer; text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s; }
     .prod-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(192,0,224,0.35); }
     .prod-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
     .prod-card-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #3a006f, #c000e0); display: flex; align-items: center; justify-content: center; }
@@ -237,7 +237,9 @@
       section { padding: 60px 20px; }
       .form-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .prod-card { min-width: 240px; }
+      .prod-slider { padding: 0 44px; }
+      .prod-card { min-width: calc(100vw - 108px); }
+      .prod-card img { height: 210px; }
 
       /* ── MOBILE HERO: tall portrait like BN Media Films ── */
       .hero {
@@ -660,13 +662,32 @@
 
   // PRODUCTIONS SLIDER
   let prodIdx = 0;
-  function changeProd(dir) {
-    const track = document.getElementById('prodTrack');
-    const cards = track.querySelectorAll('.prod-card');
-    const cardW = cards[0].offsetWidth + 24;
-    prodIdx = Math.max(0, Math.min(cards.length - 3, prodIdx + dir));
-    track.style.transform = `translateX(-${prodIdx * cardW}px)`;
+  const prodTrack = document.getElementById('prodTrack');
+
+  function getVisibleCount() {
+    return window.innerWidth <= 768 ? 1 : 3;
   }
+
+  function updateProd() {
+    const cards = prodTrack.querySelectorAll('.prod-card');
+    const cardW = cards[0].offsetWidth + 20; // 20 = gap
+    prodTrack.style.transform = `translateX(-${prodIdx * cardW}px)`;
+  }
+
+  function changeProd(dir) {
+    const cards = prodTrack.querySelectorAll('.prod-card');
+    const visible = getVisibleCount();
+    const maxIdx = cards.length - visible;
+    prodIdx = prodIdx + dir;
+    // Loop around
+    if (prodIdx > maxIdx) prodIdx = 0;
+    if (prodIdx < 0) prodIdx = maxIdx;
+    updateProd();
+  }
+
+  // Auto-advance every 4 seconds
+  setInterval(() => changeProd(1), 4000);
+  window.addEventListener('resize', updateProd);
 
   // FAQ
   function toggleFaq(btn) {
