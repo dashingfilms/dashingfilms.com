@@ -600,11 +600,20 @@
   function showFilm(n) {
     prodIdx = (n + films.length) % films.length;
     const f = films[prodIdx];
-    prodThumb.src = 'https://img.youtube.com/vi/' + f.id + '/hqdefault.jpg';
+    // Store the target ID so we can verify on load
+    const targetId = f.id;
+    // Hide title while image loads
+    prodTitle.textContent = '...';
+    prodCard.dataset.ytid = targetId;
+    // Load new image - only update title when image is actually loaded
+    prodThumb.onload = function() {
+      // Double-check we're still on the same film (not already moved on)
+      if (prodCard.dataset.ytid === targetId) {
+        prodTitle.textContent = films.find(x => x.id === targetId).title;
+      }
+    };
+    prodThumb.src = 'https://img.youtube.com/vi/' + targetId + '/hqdefault.jpg';
     prodThumb.alt = f.title;
-    prodTitle.textContent = f.title;
-    // Store ID directly on the element — no href dependency
-    prodCard.dataset.ytid = f.id;
     document.querySelectorAll('.prod-dot').forEach((d, i) => d.classList.toggle('active', i === prodIdx));
   }
 
@@ -624,8 +633,8 @@
   // Init first film
   showFilm(0);
 
-  // Auto-advance every 5 seconds, pauses on hover
-  setInterval(() => { if (!prodPaused) changeProd(1); }, 5000);
+  // Auto-advance every 8 seconds, pauses on hover
+  setInterval(() => { if (!prodPaused) changeProd(1); }, 8000);
 
   // FAQ
   function toggleFaq(btn) {
