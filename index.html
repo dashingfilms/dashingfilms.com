@@ -55,9 +55,8 @@
       min-width: 100%;
       position: relative;
       background: #000;
-      height: 75vh;
-      max-height: 750px;
-      min-height: 400px;
+      /* 16:9 aspect ratio */
+      aspect-ratio: 16 / 9;
       overflow: hidden;
     }
     .slide-bg { display: none; }
@@ -66,16 +65,16 @@
       height: 100%;
       display: block;
       object-fit: cover;
-      object-position: center top;
+      object-position: center center;
     }
     .slide-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.2) 55%, transparent 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%);
       z-index: 1;
     }
     .slide::after { display: none; }
     .slide-content {
-      position: absolute; bottom: 70px; left: 50%;
+      position: absolute; bottom: 8%; left: 50%;
       transform: translateX(-50%); width: 100%;
       z-index: 2; text-align: center; color: #fff; padding: 20px;
     }
@@ -291,6 +290,11 @@
     <div class="slide"><img class="slide-photo" src="slide18.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
     <div class="slide"><img class="slide-photo" src="slide19.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
     <div class="slide"><img class="slide-photo" src="slide20.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide21.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide22.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide23.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide24.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide25.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
   </div>
   <button class="slider-btn prev" onclick="changeSlide(-1)">&#8592;</button>
   <button class="slider-btn next" onclick="changeSlide(1)">&#8594;</button>
