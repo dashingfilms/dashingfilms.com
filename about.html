@@ -24,7 +24,7 @@
       padding: 0 40px; height: 70px; border-bottom: 2px solid var(--primary);
     }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-logo img { height: 44px; width: auto; }
+    .nav-logo img { height: 44px; width: auto; background: #fff; border-radius: 6px; padding: 3px 6px; }
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a { color: #ccc; text-decoration: none; font-size: 0.9rem; font-weight: 600; font-family: 'Montserrat', sans-serif; transition: color 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
     .nav-links a:hover, .nav-links a.active { color: var(--primary-light); }
@@ -48,8 +48,11 @@
     /* WHO WE ARE */
     .about-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px; }
     .about-intro-text p { color: var(--text-light); line-height: 1.85; margin-bottom: 16px; font-size: 0.97rem; }
-    .about-logo-block { display: flex; align-items: center; justify-content: center; background: var(--dark); border-radius: 16px; padding: 48px; }
+    .about-logo-block { display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 16px; padding: 48px; border: 2px solid var(--border); box-shadow: 0 4px 20px rgba(192,0,224,0.1); }
     .about-logo-block img { width: 100%; max-width: 280px; height: auto; }
+    /* nav logo on dark bg — fine. footer logo needs white bg pill */
+    .footer-brand .logo-wrap { display: inline-block; background: #fff; border-radius: 8px; padding: 6px 10px; margin-bottom: 14px; }
+    .footer-brand .logo-wrap img { height: 52px; width: auto; display: block; }
 
     /* MISSION & VISION */
     .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 80px; }
@@ -100,7 +103,68 @@
     .social-bar a.sb-whatsapp  { background: #25D366; }
     .social-bar a.sb-linkedin  { background: #0A66C2; }
 
-    /* RESPONSIVE */
+    /* PRODUCTIONS GRID */
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+    .prod-card {
+      position: relative; border-radius: 10px; overflow: hidden;
+      cursor: pointer; display: block; text-decoration: none;
+      aspect-ratio: 2/3; background: #1a1a1a;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .prod-card:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 12px 32px rgba(192,0,224,0.3); }
+    .prod-card-poster {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .prod-card-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 16px; text-align: center;
+    }
+    .prod-card-placeholder img { width: 60%; max-width: 90px; opacity: 0.5; margin-bottom: 12px; }
+    .prod-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.15) 55%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 14px;
+      transition: background 0.2s;
+    }
+    .prod-card:hover .prod-overlay { background: linear-gradient(to top, rgba(140,0,180,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); }
+    .prod-badge {
+      font-size: 0.65rem; font-weight: 700; background: var(--gradient);
+      color: #fff; padding: 2px 9px; border-radius: 20px;
+      display: inline-block; margin-bottom: 5px;
+      font-family: 'Montserrat', sans-serif; text-transform: uppercase; width: fit-content;
+    }
+    .prod-title { color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem; margin-bottom: 5px; line-height: 1.3; }
+    .prod-yt { color: var(--primary-light); font-size: 0.75rem; font-weight: 600; font-family: 'Montserrat', sans-serif; display: flex; align-items: center; gap: 4px; }
+    .prod-yt::before { content: '▶'; font-size: 0.65rem; }
+
+    /* PAGINATION */
+    .prod-pagination {
+      display: flex; justify-content: center; align-items: center;
+      gap: 10px; margin-top: 16px;
+    }
+    .prod-pagination button {
+      padding: 10px 28px; border-radius: 5px; border: none;
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 0.9rem; cursor: pointer; transition: background 0.2s, color 0.2s;
+    }
+    .btn-prev { background: #eee; color: var(--charcoal); }
+    .btn-prev:hover { background: #ddd; }
+    .btn-next { background: var(--gradient); color: #fff; }
+    .btn-next:hover { opacity: 0.9; }
+    .btn-prev:disabled, .btn-next:disabled { opacity: 0.3; cursor: not-allowed; }
+    .page-info { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; color: var(--text-light); }
+
+    @media (max-width: 1024px) { .prod-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 768px)  { .prod-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; } }
+    @media (max-width: 480px)  { .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
     @media (max-width: 900px) {
       .about-intro { grid-template-columns: 1fr; }
       .mv-grid { grid-template-columns: 1fr; }
@@ -227,12 +291,23 @@
     </div>
   </section>
 
+  <!-- OUR PRODUCTIONS -->
+  <section style="margin-bottom:80px;">
+    <h2 class="section-title">Our Productions</h2>
+    <div class="title-bar"></div>
+
+    <div class="prod-grid" id="prodGrid"></div>
+
+    <!-- PAGINATION -->
+    <div class="prod-pagination" id="prodPagination"></div>
+  </section>
+
 </main>
 
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="logo.png" alt="Dashing Films"/>
+      <div class="logo-wrap"><img src="logo.png" alt="Dashing Films"/></div>
       <p>Telling stories that matter — through films, series, and authentic human experiences.</p>
     </div>
     <div class="footer-col">
@@ -285,6 +360,81 @@
 
 <script>
   function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+
+  // ── PRODUCTIONS DATA ──
+  // Replace poster: 'logo.png' with your real poster image filenames
+  // Replace ytUrl with the real YouTube link for each film
+  const productions = [
+    { title: 'Production Title 1', type: 'Film',   poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+    { title: 'Production Title 2', type: 'Series', poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+    { title: 'Production Title 3', type: 'Film',   poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+    { title: 'Production Title 4', type: 'Series', poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+    { title: 'Production Title 5', type: 'Film',   poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+    { title: 'Production Title 6', type: 'Series', poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+    { title: 'Production Title 7', type: 'Film',   poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+    { title: 'Production Title 8', type: 'Series', poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+    { title: 'Production Title 9', type: 'Film',   poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+    { title: 'Production Title 10', type: 'Series', poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+    { title: 'Production Title 11', type: 'Film',   poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+    { title: 'Production Title 12', type: 'Series', poster: null, ytUrl: 'https://youtube.com/@dashingfilmtv' },
+  ];
+
+  const gradients = [
+    'linear-gradient(135deg,#3a006f,#c000e0)',
+    'linear-gradient(135deg,#5500aa,#e040fb)',
+    'linear-gradient(135deg,#1a0050,#c000e0)',
+    'linear-gradient(135deg,#8800a0,#ff00cc)',
+    'linear-gradient(135deg,#2a0060,#aa00dd)',
+    'linear-gradient(135deg,#6600bb,#e040fb)',
+    'linear-gradient(135deg,#0d0030,#9900cc)',
+    'linear-gradient(135deg,#4a0080,#d000f0)',
+    'linear-gradient(135deg,#1a0040,#bb00dd)',
+    'linear-gradient(135deg,#7700aa,#ff44ff)',
+  ];
+
+  const PER_PAGE = 10;
+  let currentPage = 0;
+
+  function renderProductions() {
+    const grid = document.getElementById('prodGrid');
+    const pagination = document.getElementById('prodPagination');
+    const totalPages = Math.ceil(productions.length / PER_PAGE);
+    const start = currentPage * PER_PAGE;
+    const slice = productions.slice(start, start + PER_PAGE);
+
+    grid.innerHTML = slice.map((p, i) => {
+      const bg = gradients[(start + i) % gradients.length];
+      const inner = p.poster
+        ? `<img class="prod-card-poster" src="${p.poster}" alt="${p.title}"/>`
+        : `<div class="prod-card-placeholder" style="background:${bg}">
+             <img src="logo.png" alt="Dashing Films"/>
+             <div class="prod-title" style="color:#fff;opacity:0.9;">${p.title}</div>
+           </div>`;
+      return `
+        <a class="prod-card" href="${p.ytUrl}" target="_blank" rel="noopener">
+          ${inner}
+          <div class="prod-overlay">
+            <span class="prod-badge">${p.type}</span>
+            <div class="prod-title">${p.title}</div>
+            <div class="prod-yt">Watch on YouTube</div>
+          </div>
+        </a>`;
+    }).join('');
+
+    pagination.innerHTML = `
+      <button class="prod-pagination button btn-prev" onclick="changePage(-1)" ${currentPage === 0 ? 'disabled' : ''}>← Prev</button>
+      <span class="page-info">Page ${currentPage + 1} of ${totalPages}</span>
+      <button class="prod-pagination button btn-next" onclick="changePage(1)" ${currentPage >= totalPages - 1 ? 'disabled' : ''}>Next →</button>`;
+  }
+
+  function changePage(dir) {
+    const totalPages = Math.ceil(productions.length / PER_PAGE);
+    currentPage = Math.max(0, Math.min(totalPages - 1, currentPage + dir));
+    renderProductions();
+    document.getElementById('prodGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  renderProductions();
 </script>
 </body>
 </html>
