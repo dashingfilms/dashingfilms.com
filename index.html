@@ -599,14 +599,14 @@
   function showFilm(n) {
     prodIdx = (n + films.length) % films.length;
     const f = films[prodIdx];
-    // Fade out
+    // Update href and title IMMEDIATELY before any visual change
+    prodCard.href = 'https://youtu.be/' + f.id;
+    prodTitle.textContent = f.title;
+    // Fade out, swap image, fade in
     prodCard.style.opacity = '0';
     setTimeout(() => {
       prodThumb.src = 'https://img.youtube.com/vi/' + f.id + '/hqdefault.jpg';
       prodThumb.alt = f.title;
-      prodTitle.textContent = f.title;
-      prodCard.href = 'https://youtu.be/' + f.id;
-      // Fade in
       prodCard.style.opacity = '1';
     }, 300);
     // Update dots
