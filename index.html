@@ -167,7 +167,8 @@
     .prod-slider { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 52px; }
     .prod-slider-viewport { overflow: hidden; width: 100%; }
     .prod-track { display: flex; gap: 24px; transition: transform 0.5s ease; }
-    .prod-card { min-width: 280px; border-radius: 8px; overflow: hidden; position: relative; flex-shrink: 0; cursor: pointer; }
+    .prod-card { min-width: 280px; border-radius: 8px; overflow: hidden; position: relative; flex-shrink: 0; cursor: pointer; text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s; }
+    .prod-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(192,0,224,0.35); }
     .prod-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
     .prod-card-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #3a006f, #c000e0); display: flex; align-items: center; justify-content: center; }
     .prod-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 40%, transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
@@ -434,46 +435,106 @@
     <button class="prod-btn prev" onclick="changeProd(-1)">&#8592;</button>
     <div class="prod-slider-viewport">
       <div class="prod-track" id="prodTrack">
-        <div class="prod-card">
-          <div class="prod-card-placeholder"></div>
-          <div class="prod-overlay">
-            <span class="prod-badge">Series</span>
-            <div class="prod-title">Untitled Series 1</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </div>
-        <div class="prod-card">
-          <div class="prod-card-placeholder" style="background:linear-gradient(135deg,#5500aa,#e040fb)"></div>
-          <div class="prod-overlay">
-            <span class="prod-badge">Series</span>
-            <div class="prod-title">Untitled Series 2</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </div>
-        <div class="prod-card">
-          <div class="prod-card-placeholder" style="background:linear-gradient(135deg,#1a0050,#c000e0)"></div>
+
+        <a class="prod-card" href="https://youtu.be/5Lrk3BOTHJg" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/5Lrk3BOTHJg/hqdefault.jpg" alt="Mad Lovers"/>
           <div class="prod-overlay">
             <span class="prod-badge">Film</span>
-            <div class="prod-title">Untitled Film 1</div>
+            <div class="prod-title">Mad Lovers</div>
             <div class="prod-watch">▶ Watch on YouTube</div>
           </div>
-        </div>
-        <div class="prod-card">
-          <div class="prod-card-placeholder" style="background:linear-gradient(135deg,#8800a0,#ff00cc)"></div>
-          <div class="prod-overlay">
-            <span class="prod-badge">Series</span>
-            <div class="prod-title">Untitled Series 3</div>
-            <div class="prod-watch">▶ Watch on YouTube</div>
-          </div>
-        </div>
-        <div class="prod-card">
-          <div class="prod-card-placeholder" style="background:linear-gradient(135deg,#2a0060,#aa00dd)"></div>
+        </a>
+
+        <a class="prod-card" href="https://youtu.be/DsUCvSJHmaM" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/DsUCvSJHmaM/hqdefault.jpg" alt="Finding Fate"/>
           <div class="prod-overlay">
             <span class="prod-badge">Film</span>
-            <div class="prod-title">Untitled Film 2</div>
+            <div class="prod-title">Finding Fate</div>
             <div class="prod-watch">▶ Watch on YouTube</div>
           </div>
-        </div>
+        </a>
+
+        <a class="prod-card" href="https://youtu.be/TqjjbiTYL1Q" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/TqjjbiTYL1Q/hqdefault.jpg" alt="Blindspot"/>
+          <div class="prod-overlay">
+            <span class="prod-badge">Film</span>
+            <div class="prod-title">Blindspot</div>
+            <div class="prod-watch">▶ Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="prod-card" href="https://youtu.be/iso41rJ3kh8" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/iso41rJ3kh8/hqdefault.jpg" alt="Chaos at Christmas"/>
+          <div class="prod-overlay">
+            <span class="prod-badge">Film</span>
+            <div class="prod-title">Chaos at Christmas</div>
+            <div class="prod-watch">▶ Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="prod-card" href="https://youtu.be/6yxxq5xp3Mk" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/6yxxq5xp3Mk/hqdefault.jpg" alt="Love Sighted"/>
+          <div class="prod-overlay">
+            <span class="prod-badge">Film</span>
+            <div class="prod-title">Love Sighted</div>
+            <div class="prod-watch">▶ Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="prod-card" href="https://youtu.be/uC8vGrZmAaI" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/uC8vGrZmAaI/hqdefault.jpg" alt="Forgiven Hearts"/>
+          <div class="prod-overlay">
+            <span class="prod-badge">Film</span>
+            <div class="prod-title">Forgiven Hearts</div>
+            <div class="prod-watch">▶ Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="prod-card" href="https://youtu.be/Lg0YqmPwij0" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/Lg0YqmPwij0/hqdefault.jpg" alt="Perfect for Me"/>
+          <div class="prod-overlay">
+            <span class="prod-badge">Film</span>
+            <div class="prod-title">Perfect for Me</div>
+            <div class="prod-watch">▶ Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="prod-card" href="https://youtu.be/3vG-PXgqs10" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/3vG-PXgqs10/hqdefault.jpg" alt="Love in Shame"/>
+          <div class="prod-overlay">
+            <span class="prod-badge">Film</span>
+            <div class="prod-title">Love in Shame</div>
+            <div class="prod-watch">▶ Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="prod-card" href="https://youtu.be/wxpcsG1E6vk" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/wxpcsG1E6vk/hqdefault.jpg" alt="Alone with Trouble"/>
+          <div class="prod-overlay">
+            <span class="prod-badge">Film</span>
+            <div class="prod-title">Alone with Trouble</div>
+            <div class="prod-watch">▶ Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="prod-card" href="https://youtu.be/GunYT2L8JLs" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/GunYT2L8JLs/hqdefault.jpg" alt="Sisters Sham"/>
+          <div class="prod-overlay">
+            <span class="prod-badge">Film</span>
+            <div class="prod-title">Sisters Sham</div>
+            <div class="prod-watch">▶ Watch on YouTube</div>
+          </div>
+        </a>
+
+        <a class="prod-card" href="https://youtu.be/yoDfY28is2Y" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/yoDfY28is2Y/hqdefault.jpg" alt="Gifts"/>
+          <div class="prod-overlay">
+            <span class="prod-badge">Film</span>
+            <div class="prod-title">Gifts</div>
+            <div class="prod-watch">▶ Watch on YouTube</div>
+          </div>
+        </a>
+
       </div>
     </div>
     <button class="prod-btn next" onclick="changeProd(1)">&#8594;</button>
