@@ -47,16 +47,27 @@
       margin-top: 70px;
       background: #000;
       overflow: hidden;
-      border-radius: 0 0 40px 40px;
+      border-radius: 0 0 32px 32px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      width: 100%;
+      aspect-ratio: 16 / 9;
     }
-    .slides { display: flex; transition: transform 0.7s ease; width: 100%; }
+    .slides {
+      display: flex;
+      transition: transform 0.7s ease;
+      /* Strip is exactly as wide as (number of slides × 100% of hero) */
+      width: 100%;
+      height: 100%;
+      /* Prevent the flex container itself from growing */
+      will-change: transform;
+    }
     .slide {
-      min-width: 100%;
+      /* Lock each slide to exactly the hero width - never wider, never narrower */
+      flex: 0 0 100%;
+      max-width: 100%;
+      height: 100%;
       position: relative;
       background: #000;
-      /* 16:9 aspect ratio */
-      aspect-ratio: 16 / 9;
       overflow: hidden;
     }
     .slide-bg { display: none; }
@@ -76,29 +87,35 @@
     .slide-content {
       position: absolute; bottom: 8%; left: 50%;
       transform: translateX(-50%); width: 100%;
-      z-index: 2; text-align: center; color: #fff; padding: 20px;
+      z-index: 2; text-align: center; color: #fff; padding: 10px 20px;
     }
-    .slide-content h2 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--primary-light); margin-bottom: 16px; }
-    .slide-content h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 32px; }
+    .slide-content h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(0.55rem, 1.2vw, 1rem); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--primary-light); margin-bottom: 6px; }
+    .slide-content h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.1rem, 3.5vw, 4rem); font-weight: 900; line-height: 1.15; margin-bottom: 12px; }
     .btn-primary {
-      display: inline-block; padding: 14px 36px;
+      display: inline-block; padding: clamp(7px, 1.5vw, 14px) clamp(16px, 3vw, 36px);
       background: var(--gradient); color: #fff;
       text-decoration: none; font-family: 'Montserrat', sans-serif;
-      font-weight: 700; font-size: 0.95rem; border-radius: 4px;
+      font-weight: 700; font-size: clamp(0.7rem, 1.2vw, 0.95rem); border-radius: 4px;
       transition: transform 0.2s, box-shadow 0.2s; letter-spacing: 0.5px;
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,0,224,0.5); }
     .slider-btn {
-      position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
-      background: rgba(192,0,224,0.5); border: none; color: #fff;
-      font-size: 1.5rem; width: 48px; height: 48px; cursor: pointer;
-      border-radius: 50%; transition: background 0.2s;
+      position: absolute; top: 40%; transform: translateY(-50%); z-index: 10;
+      background: rgba(192,0,224,0.6); border: none; color: #fff;
+      font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+      width: clamp(28px, 4vw, 42px); height: clamp(28px, 4vw, 42px);
+      cursor: pointer; border-radius: 50%; transition: background 0.2s;
     }
     .slider-btn:hover { background: var(--primary); }
-    .slider-btn.prev { left: 20px; }
-    .slider-btn.next { right: 20px; }
-    .slider-dots { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 8px; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; transition: background 0.2s; }
+    .slider-btn.prev { left: 8px; }
+    .slider-btn.next { right: 8px; }
+    .slider-dots {
+      position: absolute; bottom: 6px; left: 0; right: 0;
+      z-index: 10; display: flex; gap: 4px;
+      justify-content: center; flex-wrap: wrap;
+      padding: 0 8px; max-width: 100%;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; transition: background 0.2s; flex-shrink: 0; }
     .dot.active { background: var(--primary-light); }
 
     /* ── SECTIONS ── */
@@ -125,19 +142,20 @@
     /* ── PRODUCTIONS ── */
     #productions { background: var(--dark); }
     #productions .section-title { color: #fff; }
-    .prod-slider { position: relative; overflow: hidden; max-width: 1200px; margin: 0 auto; }
+    .prod-slider { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 52px; }
+    .prod-slider-viewport { overflow: hidden; width: 100%; }
     .prod-track { display: flex; gap: 24px; transition: transform 0.5s ease; }
-    .prod-card { min-width: 280px; border-radius: 8px; overflow: hidden; position: relative; flex-shrink: 0; }
+    .prod-card { min-width: 280px; border-radius: 8px; overflow: hidden; position: relative; flex-shrink: 0; cursor: pointer; }
     .prod-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
     .prod-card-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #3a006f, #c000e0); display: flex; align-items: center; justify-content: center; }
     .prod-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 40%, transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
     .prod-badge { font-size: 0.7rem; font-weight: 700; background: var(--gradient); color: #fff; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 6px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
     .prod-title { color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 10px; }
     .prod-watch { color: var(--primary-light); font-size: 0.85rem; font-weight: 600; font-family: 'Montserrat', sans-serif; }
-    .prod-btn { background: rgba(192,0,224,0.4); border: none; color: #fff; font-size: 1.3rem; width: 44px; height: 44px; cursor: pointer; border-radius: 50%; transition: background 0.2s; position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; }
+    .prod-btn { background: rgba(192,0,224,0.6); border: none; color: #fff; font-size: 1.3rem; width: 44px; height: 44px; cursor: pointer; border-radius: 50%; transition: background 0.2s; position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; }
     .prod-btn:hover { background: var(--primary); }
-    .prod-btn.prev { left: -22px; }
-    .prod-btn.next { right: -22px; }
+    .prod-btn.prev { left: 0; }
+    .prod-btn.next { right: 0; }
 
     /* ── CONTACT ── */
     #contact { background: var(--light-bg); }
@@ -348,9 +366,9 @@
 <!-- PRODUCTIONS -->
 <section id="productions">
   <h2 class="section-title">Our Productions</h2>
-  <div class="prod-slider" style="position:relative;">
+  <div class="prod-slider">
     <button class="prod-btn prev" onclick="changeProd(-1)">&#8592;</button>
-    <div style="overflow:hidden;">
+    <div class="prod-slider-viewport">
       <div class="prod-track" id="prodTrack">
         <div class="prod-card">
           <div class="prod-card-placeholder"></div>
@@ -488,7 +506,8 @@
 
   // HERO SLIDER
   let current = 0;
-  const slides = document.getElementById('slides');
+  const slidesEl = document.getElementById('slides');
+  const heroEl = slidesEl.closest('.hero');
   const total = document.querySelectorAll('.slide').length;
   const dotsEl = document.getElementById('dots');
   for (let i = 0; i < total; i++) {
@@ -499,10 +518,14 @@
   }
   function goSlide(n) {
     current = (n + total) % total;
-    slides.style.transform = `translateX(-${current * 100}%)`;
+    // Use hero's actual pixel width so each slide translates exactly one frame
+    const slideWidth = heroEl.offsetWidth;
+    slidesEl.style.transform = `translateX(-${current * slideWidth}px)`;
     document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
   }
   function changeSlide(dir) { goSlide(current + dir); }
+  // Re-calculate on resize to handle orientation changes
+  window.addEventListener('resize', () => goSlide(current));
   setInterval(() => changeSlide(1), 5000);
 
   // PRODUCTIONS SLIDER
