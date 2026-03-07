@@ -437,12 +437,7 @@
     <button class="prod-btn prev" onclick="changeProd(-1)">&#8592;</button>
     <div class="prod-slider-viewport">
       <a class="prod-card" id="prodCard" href="#" target="_blank" rel="noopener">
-        <img id="prodThumb" src="" alt=""/>
-        <div class="prod-overlay">
-          <span class="prod-badge">Film</span>
-          <div class="prod-title" id="prodTitle"></div>
-          <div class="prod-watch">▶ Watch on YouTube</div>
-        </div>
+        <img id="prodThumb" src="" alt="" style="width:100%;display:block;border-radius:12px;"/>
       </a>
     </div>
     <button class="prod-btn next" onclick="changeProd(1)">&#8594;</button>
@@ -593,7 +588,6 @@
   let prodPaused = false;
   const prodCard   = document.getElementById('prodCard');
   const prodThumb  = document.getElementById('prodThumb');
-  const prodTitle  = document.getElementById('prodTitle');
   const prodDotsEl = document.getElementById('prodDots');
 
   // Build dots
@@ -607,19 +601,12 @@
   function showFilm(n) {
     prodIdx = (n + films.length) % films.length;
     const f = films[prodIdx];
-    // All three update simultaneously from cached image
+    // Update href and image at exactly the same time - no titles, no async
+    prodCard.href  = 'https://youtu.be/' + f.id;
     prodThumb.src  = f.cachedImg.src;
     prodThumb.alt  = f.title;
-    prodTitle.textContent = f.title;
-    prodCard.dataset.ytid = f.id;
     document.querySelectorAll('.prod-dot').forEach((d, i) => d.classList.toggle('active', i === prodIdx));
   }
-
-  // Click reads data-ytid at exact moment of click
-  prodCard.addEventListener('click', function(e) {
-    e.preventDefault();
-    window.open('https://youtu.be/' + this.dataset.ytid, '_blank');
-  });
 
   prodCard.addEventListener('mouseenter', () => { prodPaused = true; });
   prodCard.addEventListener('mouseleave', () => { prodPaused = false; });
