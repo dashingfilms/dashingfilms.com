@@ -42,40 +42,30 @@
     .hamburger span { width: 25px; height: 2px; background: #fff; transition: 0.3s; }
 
     /* ── HERO SLIDER ── */
-    .hero { position: relative; height: 100vh; overflow: hidden; margin-top: 70px; }
-    .slides { display: flex; transition: transform 0.7s ease; height: 100%; }
+    .hero { position: relative; margin-top: 70px; background: #000; overflow: hidden; }
+    .slides { display: flex; transition: transform 0.7s ease; width: 100%; }
     .slide {
-      min-width: 100%; height: 100%; position: relative;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--dark);
+      min-width: 100%;
+      position: relative;
+      background: #000;
     }
-    .slide-bg {
+    .slide-bg { display: none; }
+    .slide-photo {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .slide-overlay {
       position: absolute; inset: 0;
-      background-size: cover; background-position: center;
-      opacity: 1;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 50%, transparent 100%);
+      z-index: 1;
     }
-    .slide:nth-child(1) .slide-bg,
-    .slide:nth-child(2) .slide-bg,
-    .slide:nth-child(3) .slide-bg,
-    .slide:nth-child(4) .slide-bg,
-    .slide:nth-child(5) .slide-bg,
-    .slide:nth-child(6) .slide-bg,
-    .slide:nth-child(7) .slide-bg,
-    .slide:nth-child(8) .slide-bg,
-    .slide:nth-child(9) .slide-bg,
-    .slide:nth-child(10) .slide-bg,
-    .slide:nth-child(11) .slide-bg,
-    .slide:nth-child(12) .slide-bg,
-    .slide:nth-child(13) .slide-bg,
-    .slide:nth-child(14) .slide-bg,
-    .slide:nth-child(15) .slide-bg,
-    .slide:nth-child(16) .slide-bg,
-    .slide:nth-child(17) .slide-bg,
-    .slide:nth-child(18) .slide-bg,
-    .slide:nth-child(19) .slide-bg,
-    .slide:nth-child(20) .slide-bg { opacity: 1; background: none; }
-    .slide::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
-    .slide-content { position: relative; z-index: 2; text-align: center; color: #fff; padding: 20px; }
+    .slide::after { display: none; }
+    .slide-content {
+      position: absolute; bottom: 60px; left: 50%;
+      transform: translateX(-50%); width: 100%;
+      z-index: 2; text-align: center; color: #fff; padding: 20px;
+    }
     .slide-content h2 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--primary-light); margin-bottom: 16px; }
     .slide-content h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 32px; }
     .btn-primary {
@@ -268,26 +258,26 @@
 <!-- HERO SLIDER -->
 <section class="hero">
   <div class="slides" id="slides">
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide1.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide2.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide3.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide4.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide5.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide6.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide7.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide8.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide9.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide10.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide11.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide12.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide13.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide14.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide15.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide16.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide17.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide18.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide19.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
-    <div class="slide"><div class="slide-bg" style="background-image:url('slide20.jpeg')"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide1.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide2.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide3.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide4.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide5.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide6.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide7.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide8.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide9.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide10.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide11.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide12.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide13.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide14.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide15.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide16.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide17.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide18.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide19.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
+    <div class="slide"><img class="slide-photo" src="slide20.jpeg" alt="Dashing Films"/><div class="slide-overlay"></div><div class="slide-content"><h2>Dashing Films</h2><h1>Telling Stories<br>That Matter.</h1><a href="#productions" class="btn-primary">Our Productions</a></div></div>
   </div>
   <button class="slider-btn prev" onclick="changeSlide(-1)">&#8592;</button>
   <button class="slider-btn next" onclick="changeSlide(1)">&#8594;</button>
