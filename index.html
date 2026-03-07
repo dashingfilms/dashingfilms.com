@@ -234,6 +234,50 @@
       .form-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
       .prod-card { min-width: 240px; }
+
+      /* ── MOBILE HERO: tall portrait like BN Media Films ── */
+      .hero {
+        aspect-ratio: unset;
+        height: 88vh;
+        min-height: 500px;
+      }
+      .slide-content {
+        bottom: unset;
+        top: unset;
+        left: 0;
+        transform: none;
+        text-align: left;
+        padding: 28px 24px;
+        /* Pin to bottom */
+        position: absolute;
+        bottom: 60px;
+        width: 100%;
+      }
+      .slide-content h2 {
+        font-size: 0.72rem;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+      }
+      .slide-content h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        line-height: 1.15;
+      }
+      .btn-primary {
+        font-size: 0.82rem;
+        padding: 11px 26px;
+      }
+      .slider-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+        top: 45%;
+      }
+      .slider-dots {
+        bottom: 30px;
+        justify-content: flex-start;
+        padding: 0 24px;
+      }
     }
   
     
