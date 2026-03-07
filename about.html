@@ -14,7 +14,9 @@
       --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--white); }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--white); padding-bottom: 52px; }
+
+    /* NAV */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 1000;
       background: rgba(26,26,26,0.97); backdrop-filter: blur(8px);
@@ -29,6 +31,7 @@
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { width: 25px; height: 2px; background: #fff; }
 
+    /* PAGE HERO */
     .page-hero {
       margin-top: 70px; padding: 80px 40px; text-align: center;
       background: linear-gradient(135deg, #1a0030 0%, #8800a0 50%, #c000e0 100%);
@@ -36,35 +39,44 @@
     .page-hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #fff; margin-bottom: 12px; }
     .page-hero p { color: rgba(255,255,255,0.75); font-size: 1rem; }
 
+    /* MAIN */
     main { max-width: 1100px; margin: 0 auto; padding: 70px 40px; }
-    .section-title { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--charcoal); margin-bottom: 20px; }
-    .section-title::after { content: ''; display: block; width: 50px; height: 4px; background: var(--gradient); margin-top: 10px; border-radius: 2px; }
 
+    .section-title { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--charcoal); margin-bottom: 8px; }
+    .title-bar { width: 50px; height: 4px; background: var(--gradient); border-radius: 2px; margin-bottom: 32px; }
+
+    /* WHO WE ARE */
     .about-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px; }
-    .about-intro-text p { color: var(--text-light); line-height: 1.8; margin-bottom: 16px; font-size: 1rem; }
-    .about-img-placeholder { width: 100%; height: 360px; background: var(--gradient); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
-    .about-img-placeholder img { height: 100px; opacity: 0.5; filter: brightness(10); }
+    .about-intro-text p { color: var(--text-light); line-height: 1.85; margin-bottom: 16px; font-size: 0.97rem; }
+    .about-logo-block { display: flex; align-items: center; justify-content: center; background: var(--dark); border-radius: 16px; padding: 48px; }
+    .about-logo-block img { width: 100%; max-width: 280px; height: auto; }
 
-    .mission-section { background: var(--dark); border-radius: 16px; padding: 60px; margin-bottom: 80px; text-align: center; }
-    .mission-section h2 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 20px; }
-    .mission-section h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--gradient); margin: 12px auto 0; border-radius: 2px; }
-    .mission-section p { color: #bbb; line-height: 1.8; font-size: 1rem; max-width: 700px; margin: 0 auto; }
+    /* MISSION & VISION */
+    .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 80px; }
+    .mv-card { background: var(--dark); border-radius: 12px; padding: 40px; border-top: 4px solid var(--primary); }
+    .mv-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--primary-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+    .mv-card p { color: #bbb; line-height: 1.8; font-size: 0.95rem; }
 
-    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-bottom: 80px; }
-    .value-card { background: var(--light-bg); border-radius: 10px; padding: 32px 24px; text-align: center; border: 1px solid var(--border); }
-    .value-icon { width: 56px; height: 56px; background: var(--gradient); border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
-    .value-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 10px; }
-    .value-card p { color: var(--text-light); font-size: 0.88rem; line-height: 1.6; }
+    /* VALUES */
+    .values-section { margin-bottom: 80px; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+    .value-card { background: var(--light-bg); border-radius: 10px; padding: 32px 24px; border: 1px solid var(--border); }
+    .value-icon { width: 52px; height: 52px; background: var(--gradient); border-radius: 50%; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+    .value-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.97rem; margin-bottom: 10px; color: var(--charcoal); }
+    .value-card p { color: var(--text-light); font-size: 0.88rem; line-height: 1.65; }
 
-    .team-section { margin-bottom: 80px; }
-    .team-section h2 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 10px; }
-    .team-section h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--gradient); margin-top: 10px; border-radius: 2px; margin-bottom: 36px; }
-    .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 28px; }
-    .team-card { text-align: center; }
-    .team-avatar { width: 120px; height: 120px; border-radius: 50%; background: var(--gradient); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 900; border: 3px solid var(--primary-light); }
-    .team-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
-    .team-card p { font-size: 0.82rem; color: var(--primary); font-weight: 600; font-family: 'Montserrat', sans-serif; }
+    /* FOUNDER */
+    .founder-section { margin-bottom: 80px; }
+    .founder-card { display: grid; grid-template-columns: 340px 1fr; gap: 0; align-items: stretch; background: var(--light-bg); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .founder-photo { width: 100%; height: 100%; min-height: 460px; object-fit: cover; object-position: center top; display: block; }
+    .founder-info { padding: 48px 48px 48px 44px; }
+    .founder-info h3 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.7rem; color: var(--charcoal); margin-bottom: 4px; }
+    .founder-role { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--primary); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; display: block; }
+    .founder-divider { width: 40px; height: 3px; background: var(--gradient); border-radius: 2px; margin-bottom: 24px; }
+    .founder-bio p { color: var(--text-light); line-height: 1.88; font-size: 0.95rem; margin-bottom: 16px; }
+    .founder-bio p:last-child { margin-bottom: 0; }
 
+    /* FOOTER */
     footer { background: var(--dark); color: #ccc; padding: 60px 40px 30px; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 48px; }
     .footer-brand img { height: 60px; margin-bottom: 14px; }
@@ -76,52 +88,9 @@
     .footer-col ul li a:hover { color: var(--primary-light); }
     .footer-bottom { border-top: 1px solid #333; padding-top: 24px; text-align: center; font-size: 0.85rem; color: #666; max-width: 1100px; margin: 0 auto; }
 
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--dark2); flex-direction: column; padding: 20px; gap: 16px; }
-      .nav-links.open { display: flex; }
-      .hamburger { display: flex; }
-      main { padding: 50px 20px; }
-      .about-intro { grid-template-columns: 1fr; }
-      .mission-section { padding: 40px 24px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-    }
-  
-    
-    @media (max-width: 600px) {
-      .social-float {
-        top: auto; bottom: 0; right: 0; left: 0;
-        transform: none; flex-direction: row;
-        border-radius: 8px 8px 0 0;
-        justify-content: center;
-        box-shadow: 0 -2px 16px rgba(0,0,0,0.3);
-      }
-      .social-float a { width: 20%; height: 48px; }
-      .social-float a:hover { width: 20%; }
-    }
-
-  
-    
-  
-    /* ── FIXED BOTTOM SOCIAL BAR ── */
-    .social-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-      display: flex;
-      flex-direction: row;
-      height: 52px;
-    }
-    .social-bar a {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: filter 0.2s, flex 0.2s;
-    }
+    /* FIXED BOTTOM SOCIAL BAR */
+    .social-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; display: flex; flex-direction: row; height: 52px; }
+    .social-bar a { flex: 1; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: filter 0.2s, flex 0.2s; }
     .social-bar a:hover { filter: brightness(1.25); flex: 1.3; }
     .social-bar a svg { width: 24px; height: 24px; fill: #fff; }
     .social-bar a.sb-youtube   { background: #FF0000; }
@@ -130,12 +99,27 @@
     .social-bar a.sb-tiktok    { background: #010101; }
     .social-bar a.sb-whatsapp  { background: #25D366; }
     .social-bar a.sb-linkedin  { background: #0A66C2; }
-    /* push footer content up so bar doesn't cover it */
-    body { padding-bottom: 52px; }
 
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .about-intro { grid-template-columns: 1fr; }
+      .mv-grid { grid-template-columns: 1fr; }
+      .founder-card { grid-template-columns: 1fr; }
+      .founder-photo { min-height: 400px; max-height: 460px; width: 100%; }
+      .founder-info { padding: 32px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--dark2); flex-direction: column; padding: 20px; gap: 16px; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      main { padding: 50px 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
   </style>
 </head>
 <body>
+
 <nav>
   <a class="nav-logo" href="index.html"><img src="logo.png" alt="Dashing Films"/></a>
   <ul class="nav-links" id="navLinks">
@@ -157,76 +141,92 @@
 </div>
 
 <main>
-  <!-- WHO WE ARE -->
-  <div class="about-intro">
-    <div class="about-intro-text">
-      <h2 class="section-title">Who We Are</h2>
-      <p>Dashing Films is an independent film and series production company dedicated to telling stories that reflect the depth, beauty, and complexity of human experience.</p>
-      <p>We believe that great storytelling has the power to move people, spark conversations, and create lasting change. Every project we take on is driven by that belief.</p>
-      <p>From intimate character-driven dramas to bold, high-stakes narratives, we bring originality, heart, and vision to everything we produce.</p>
-    </div>
-    <div class="about-img-placeholder">
-      <img src="logo.png" alt="Dashing Films"/>
-    </div>
-  </div>
 
-  <!-- MISSION -->
-  <div class="mission-section">
-    <h2>Our Mission</h2>
-    <p>To create authentic, compelling stories through films and series that resonate with audiences — stories that matter, endure, and inspire.</p>
-  </div>
+  <!-- WHO WE ARE -->
+  <section style="margin-bottom:80px;">
+    <h2 class="section-title">Who We Are</h2>
+    <div class="title-bar"></div>
+    <div class="about-intro">
+      <div class="about-intro-text">
+        <p>Dashing Films is an independent film production company dedicated to telling authentic and emotionally compelling stories that connect with audiences across cultures. Driven by a passion for storytelling and visual creativity, the company produces films that explore human relationships, faith, ambition, and real-life experiences.</p>
+        <p>Committed to meaningful cinema, Dashing Films believes that film has the power to inspire, challenge perspectives, and spark important conversations. Through collaboration with talented filmmakers, actors, and creatives, the company continues to develop projects that reflect quality storytelling and artistic excellence.</p>
+        <p>With a growing presence in the African film industry, Dashing Films aims to create bold, relatable stories that resonate with audiences both locally and globally.</p>
+      </div>
+      <div class="about-logo-block">
+        <img src="logo.png" alt="Dashing Films"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section style="margin-bottom:80px;">
+    <h2 class="section-title">Mission & Vision</h2>
+    <div class="title-bar"></div>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <h3>Our Mission</h3>
+        <p>To develop and produce compelling films that reflect authentic human experiences, spark meaningful conversations, and connect deeply with audiences through powerful storytelling and cinematic excellence.</p>
+      </div>
+      <div class="mv-card">
+        <h3>Our Vision</h3>
+        <p>To build a dynamic film production platform that champions bold storytelling and contributes to the global recognition and evolution of African cinema.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- VALUES -->
-  <h2 class="section-title" style="text-align:center;margin-bottom:36px;">Our Values</h2>
-  <div class="values-grid">
-    <div class="value-card">
-      <div class="value-icon">🎬</div>
-      <h3>Authentic Storytelling</h3>
-      <p>We craft stories rooted in real human experience — honest, emotional, and unforgettable.</p>
+  <section class="values-section">
+    <h2 class="section-title">Our Values</h2>
+    <div class="title-bar"></div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🎬</div>
+        <h3>Creativity & Storytelling</h3>
+        <p>We believe powerful stories begin with bold ideas and imaginative thinking. At Dashing Films, creativity drives every stage of our work — from concept development to the final frame on screen.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">✨</div>
+        <h3>Excellence in Craft</h3>
+        <p>We are committed to producing films with a high standard of quality, professionalism, and artistic integrity, ensuring every project reflects dedication to the craft of filmmaking.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">❤️</div>
+        <h3>Authentic Narratives</h3>
+        <p>We tell stories that are honest, relatable, and rooted in real human emotions and experiences, creating films that audiences can truly connect with.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌍</div>
+        <h3>Purpose & Impact</h3>
+        <p>Our films are created not only to entertain but also to inspire reflection, spark meaningful conversations, and leave a lasting impression on audiences.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3>Collaborative Vision</h3>
+        <p>Great films are built through teamwork. We value collaboration with talented creatives, actors, and partners who share our passion for bringing powerful stories to life.</p>
+      </div>
     </div>
-    <div class="value-card">
-      <div class="value-icon">✨</div>
-      <h3>Creative Excellence</h3>
-      <p>From script to screen, we hold every element to the highest creative standard.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon">🤝</div>
-      <h3>Collaboration</h3>
-      <p>Great films are made together. We build teams built on trust, respect, and shared vision.</p>
-    </div>
-    <div class="value-card">
-      <div class="value-icon">🌍</div>
-      <h3>Impact</h3>
-      <p>We want our stories to spark real conversations and leave a lasting impression on audiences.</p>
-    </div>
-  </div>
+  </section>
 
-  <!-- TEAM -->
-  <div class="team-section">
-    <h2>Meet the Team</h2>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar">A</div>
-        <h3>Alex Placeholder</h3>
-        <p>Founder & Director</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">S</div>
-        <h3>Sam Placeholder</h3>
-        <p>Head of Production</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">J</div>
-        <h3>Jordan Placeholder</h3>
-        <p>Lead Screenwriter</p>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar">M</div>
-        <h3>Morgan Placeholder</h3>
-        <p>Director of Photography</p>
+  <!-- FOUNDER -->
+  <section class="founder-section">
+    <h2 class="section-title">Meet the Founder</h2>
+    <div class="title-bar"></div>
+    <div class="founder-card">
+      <img class="founder-photo" src="jennifer.jpg" alt="Jennifer Okorie — Founder, Dashing Films"/>
+      <div class="founder-info">
+        <h3>Jennifer Okorie</h3>
+        <span class="founder-role">Founder &amp; Filmmaker</span>
+        <div class="founder-divider"></div>
+        <div class="founder-bio">
+          <p>Jennifer Okorie is a filmmaker, producer, and storyteller driven by a deep desire to bring meaningful human experiences to the screen. As the founder of Dashing Films, she approaches filmmaking not simply as a business, but as a powerful medium for telling stories that matter.</p>
+          <p>Her journey into film was not motivated by the industry itself, but by a personal story she felt compelled to tell — a story rooted in real emotions, lived experiences, and the complexities of life that many people silently carry. That desire to give voice to untold and deeply human narratives became the foundation of her work as a filmmaker.</p>
+          <p>Through Dashing Films, Jennifer focuses on developing films that explore relationships, faith, ambition, and the emotional realities of everyday life. Her storytelling approach is intentional and reflective, aiming to create films that resonate with audiences on a deeper level and spark meaningful conversations.</p>
+          <p>Beyond filmmaking, Jennifer is also an entrepreneur and the founder of the Jennifer Okorie Foundation, where she extends her commitment to impact and community development. Her vision for Dashing Films is to build a platform where powerful stories can be told with honesty, creativity, and purpose — contributing to the growth of African cinema while connecting with audiences around the world.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+
 </main>
 
 <footer>
@@ -249,17 +249,17 @@
     <div class="footer-col">
       <h4>Follow Us</h4>
       <ul>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">TikTok</a></li>
+        <li><a href="https://youtube.com/@dashingfilmtv?si=etig1fv30F5bva_R" target="_blank">YouTube</a></li>
+        <li><a href="https://www.instagram.com/dashingfilmstv?igsh=MXBicG9yN2o1czh5cA==" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/share/19U4waDBEb/?mibextid=wwXIfr" target="_blank">Facebook</a></li>
+        <li><a href="https://www.tiktok.com/@dashingfilmtv?_r=1&_t=ZS-94Szw7mXbpF" target="_blank">TikTok</a></li>
+        <li><a href="https://chat.whatsapp.com/Ki5wrC0XvCs0XEtM9LTDv2?mode=gi_t" target="_blank">WhatsApp</a></li>
+        <li><a href="https://www.linkedin.com/company/dashing-films/" target="_blank">LinkedIn</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">© 2026 Dashing Films. All Rights Reserved.</div>
 </footer>
-
-
 
 <!-- FIXED BOTTOM SOCIAL BAR -->
 <div class="social-bar">
@@ -283,5 +283,8 @@
   </a>
 </div>
 
+<script>
+  function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+</script>
 </body>
 </html>
