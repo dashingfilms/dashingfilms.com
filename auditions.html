@@ -14,7 +14,7 @@
       --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--white); }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--white); padding-bottom: 60px; }
     nav {
       position: fixed; top: 0; width: 100%; z-index: 1000;
       background: rgba(26,26,26,0.97); backdrop-filter: blur(8px);
@@ -31,56 +31,37 @@
     .nav-links a:hover, .nav-links a.active { color: var(--primary-light); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { width: 25px; height: 2px; background: #fff; }
-
     .page-hero {
       margin-top: 70px; padding: 80px 40px; text-align: center;
       background: linear-gradient(135deg, #1a0030 0%, #8800a0 50%, #c000e0 100%);
     }
     .page-hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #fff; margin-bottom: 12px; }
     .page-hero p { color: rgba(255,255,255,0.75); font-size: 1rem; }
+    main { max-width: 860px; margin: 0 auto; padding: 70px 40px; }
 
-    main { max-width: 1000px; margin: 0 auto; padding: 70px 40px; }
-    .section-title { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--charcoal); margin-bottom: 20px; }
-    .section-title::after { content: ''; display: block; width: 50px; height: 4px; background: var(--gradient); margin-top: 10px; border-radius: 2px; margin-bottom: 36px; }
+    /* CLOSED */
+    .closed-wrap { text-align: center; padding: 60px 20px; }
+    .closed-icon { font-size: 5rem; margin-bottom: 24px; }
+    .closed-wrap h2 { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: var(--charcoal); margin-bottom: 16px; }
+    .closed-wrap p { color: var(--text-light); font-size: 1rem; line-height: 1.8; max-width: 520px; margin: 0 auto 36px; }
+    .notify-strip { display: inline-block; background: linear-gradient(135deg, #1a0030, #8800a0); color: #fff; border-radius: 12px; padding: 22px 36px; font-size: 0.92rem; line-height: 1.8; }
+    .notify-strip strong { color: var(--primary-light); display: block; font-family: 'Montserrat', sans-serif; font-size: 1rem; margin-bottom: 6px; }
 
-    .intro-text { color: var(--text-light); line-height: 1.8; margin-bottom: 48px; font-size: 1rem; max-width: 750px; }
+    /* OPEN */
+    .open-wrap { display: none; }
+    .open-badge { display: inline-block; padding: 6px 18px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase; background: #eafaf1; color: #27ae60; margin-bottom: 18px; }
+    .audition-header { border-left: 5px solid var(--primary); padding: 28px 32px; background: var(--light-bg); border-radius: 0 10px 10px 0; margin-bottom: 40px; }
+    .audition-header h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--charcoal); margin-bottom: 10px; }
+    .audition-header p { color: var(--text-light); font-size: 0.95rem; line-height: 1.8; }
+    .audition-meta { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; }
+    .audition-meta span { font-size: 0.85rem; color: var(--text-light); font-weight: 600; }
+    .pdf-section h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--charcoal); margin-bottom: 16px; }
+    .pdf-embed { width: 100%; height: 620px; border: 1px solid var(--border); border-radius: 10px; display: block; }
 
-    .audition-card {
-      background: var(--light-bg); border: 1px solid var(--border);
-      border-radius: 10px; padding: 32px; margin-bottom: 28px;
-      display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;
-    }
-    .audition-card.active { border-left: 4px solid var(--primary); }
-    .audition-card.closed { opacity: 0.6; }
-    .audition-info h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; color: var(--charcoal); }
-    .audition-info p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; margin-bottom: 10px; }
-    .audition-meta { display: flex; gap: 20px; flex-wrap: wrap; }
-    .audition-meta span { font-size: 0.82rem; color: var(--text-light); font-weight: 600; }
-    .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
-    .badge.open { background: #eafaf1; color: #27ae60; }
-    .badge.closed { background: #fef0f0; color: #e74c3c; }
-    .badge.upcoming { background: #fff8e1; color: #f39c12; }
-    .btn-apply {
-      white-space: nowrap; display: inline-block; padding: 12px 28px;
-      background: var(--gradient); color: #fff; text-decoration: none;
-      font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.88rem;
-      border-radius: 4px; transition: transform 0.2s, opacity 0.2s; border: none; cursor: pointer;
-    }
-    .btn-apply:hover { transform: translateY(-2px); opacity: 0.9; }
-    .btn-apply:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-
-    .how-section { background: var(--dark); border-radius: 16px; padding: 60px; margin: 60px 0; }
-    .how-section h2 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; font-weight: 900; color: #fff; margin-bottom: 36px; }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; }
-    .step { text-align: center; }
-    .step-num { width: 52px; height: 52px; border-radius: 50%; background: var(--gradient); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.2rem; color: #fff; }
-    .step h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #fff; font-size: 0.95rem; margin-bottom: 8px; }
-    .step p { color: #aaa; font-size: 0.85rem; line-height: 1.6; }
-
+    /* FOOTER */
     footer { background: var(--dark); color: #ccc; padding: 60px 40px 30px; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 48px; }
-    .footer-brand img { height: 60px; margin-bottom: 14px; }
-    .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.6; }
+    .footer-brand p { font-size: 0.9rem; color: #999; line-height: 1.6; margin-top: 14px; }
     .footer-col h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9rem; color: #fff; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1px; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 10px; }
@@ -88,68 +69,40 @@
     .footer-col ul li a:hover { color: var(--primary-light); }
     .footer-bottom { border-top: 1px solid #333; padding-top: 24px; text-align: center; font-size: 0.85rem; color: #666; max-width: 1100px; margin: 0 auto; }
 
+    /* SOCIAL BAR */
+    .social-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 999; display: flex; height: 52px; }
+    .social-bar a { flex: 1; display: flex; align-items: center; justify-content: center; transition: opacity 0.2s; text-decoration: none; }
+    .social-bar a svg { width: 22px; height: 22px; fill: #fff; }
+    .social-bar a:hover { opacity: 0.85; }
+    .sb-youtube { background: #FF0000; }
+    .sb-instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+    .sb-facebook { background: #1877F2; }
+    .sb-tiktok { background: #000; }
+    .sb-whatsapp { background: #25D366; }
+    .sb-linkedin { background: #0A66C2; }
+
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--dark2); flex-direction: column; padding: 20px; gap: 16px; }
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
       main { padding: 50px 20px; }
-      .audition-card { flex-direction: column; }
-      .how-section { padding: 40px 24px; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .pdf-embed { height: 400px; }
+      .audition-header { padding: 20px; }
     }
-  
-    
-    @media (max-width: 600px) {
-      .social-float {
-        top: auto; bottom: 0; right: 0; left: 0;
-        transform: none; flex-direction: row;
-        border-radius: 8px 8px 0 0;
-        justify-content: center;
-        box-shadow: 0 -2px 16px rgba(0,0,0,0.3);
-      }
-      .social-float a { width: 20%; height: 48px; }
-      .social-float a:hover { width: 20%; }
-    }
-
-  
-    
-  
-    /* ── FIXED BOTTOM SOCIAL BAR ── */
-    .social-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-      display: flex;
-      flex-direction: row;
-      height: 52px;
-    }
-    .social-bar a {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: filter 0.2s, flex 0.2s;
-    }
-    .social-bar a:hover { filter: brightness(1.25); flex: 1.3; }
-    .social-bar a svg { width: 24px; height: 24px; fill: #fff; }
-    .social-bar a.sb-youtube   { background: #FF0000; }
-    .social-bar a.sb-instagram { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
-    .social-bar a.sb-facebook  { background: #1877F2; }
-    .social-bar a.sb-tiktok    { background: #010101; }
-    .social-bar a.sb-whatsapp  { background: #25D366; }
-    .social-bar a.sb-linkedin  { background: #0A66C2; }
-    /* push footer content up so bar doesn't cover it */
-    body { padding-bottom: 52px; }
-
   </style>
 </head>
 <body>
+
 <nav>
-  <a class="nav-logo" href="index.html"><img src="logo.png" alt="Dashing Films"/><div class="nav-tagline"><span class="nav-brand">Dashing Films</span><span class="nav-sub">Telling Stories That Matter.</span></div></a>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Dashing Films"/>
+    <div class="nav-tagline">
+      <span class="nav-brand">Dashing Films</span>
+      <span class="nav-sub">Telling Stories That Matter.</span>
+    </div>
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="news.html">News</a></li>
@@ -165,87 +118,60 @@
 
 <div class="page-hero">
   <h1>Auditions</h1>
-  <p>Your story starts here — we are looking for voices that matter</p>
+  <p>Your next role could be here. Check back often for new openings.</p>
 </div>
 
 <main>
-  <h2 class="section-title">Current Opportunities</h2>
-  <p class="intro-text">At Dashing Films, we believe the right story needs the right person to tell it. We welcome all experience levels — what matters most is passion, authenticity, and the desire to be part of something meaningful.</p>
 
-  <!-- OPEN ROLES -->
-  <div class="audition-card active">
-    <div class="audition-info">
-      <h3>Lead Actor/Actress — Untitled Drama Series</h3>
-      <p>We are casting for the lead role in our upcoming drama series. Looking for someone who can carry emotional depth across multiple episodes.</p>
+  <!--
+  ==============================================
+  CLOSED STATE (currently shown)
+  When auditions open:
+    1. Add  style="display:none"  to .closed-wrap div
+    2. Change  display:none  to  display:block  on .open-wrap div
+    3. Fill in the title, description, location, deadline
+    4. Upload your PDF to GitHub and update the src in the <iframe>
+  ==============================================
+  -->
+  <div class="closed-wrap">
+    <div class="closed-icon">🎬</div>
+    <h2>No Auditions Open Right Now</h2>
+    <p>We currently don't have any open audition calls. When we do, all the details and requirements will be posted right here — so check back soon!</p>
+    <div class="notify-strip">
+      <strong>Stay in the loop</strong>
+      Follow us on our social media pages so you never miss an audition announcement.
+    </div>
+  </div>
+
+  <!--
+  ==============================================
+  OPEN STATE (hidden until auditions are live)
+  ==============================================
+  -->
+  <div class="open-wrap">
+    <span class="open-badge">● Auditions Now Open</span>
+    <div class="audition-header">
+      <h2><!-- e.g. Audition Call – Upcoming Feature Film --></h2>
+      <p><!-- Short description of the production and what roles are available --></p>
       <div class="audition-meta">
-        <span>📍 Placeholder Location</span>
-        <span>📅 Deadline: April 30, 2026</span>
-        <span>🎭 Ages 18–35</span>
+        <span>📍 <!-- Location e.g. Lagos, Nigeria --></span>
+        <span>📅 Deadline: <!-- e.g. April 30, 2026 --></span>
       </div>
-      <div style="margin-top:12px;"><span class="badge open">Open</span></div>
     </div>
-    <button class="btn-apply" onclick="alert('Application link coming soon!')">Apply Now</button>
+    <div class="pdf-section">
+      <h3>Audition Requirements & Details</h3>
+      <iframe class="pdf-embed" src="<!-- e.g. audition_brief.pdf -->" title="Audition Details"></iframe>
+    </div>
   </div>
 
-  <div class="audition-card active">
-    <div class="audition-info">
-      <h3>Supporting Cast — Short Film Production</h3>
-      <p>Multiple supporting roles available for an upcoming short film. All experience levels are encouraged to apply.</p>
-      <div class="audition-meta">
-        <span>📍 Placeholder Location</span>
-        <span>📅 Deadline: April 15, 2026</span>
-        <span>🎭 Open Age Range</span>
-      </div>
-      <div style="margin-top:12px;"><span class="badge open">Open</span></div>
-    </div>
-    <button class="btn-apply" onclick="alert('Application link coming soon!')">Apply Now</button>
-  </div>
-
-  <div class="audition-card">
-    <div class="audition-info">
-      <h3>Voice Talent — Narration Project</h3>
-      <p>Seeking distinctive voices for a narration and voice-over project. Remote submissions accepted.</p>
-      <div class="audition-meta">
-        <span>📍 Remote / Online</span>
-        <span>📅 Opening: May 2026</span>
-      </div>
-      <div style="margin-top:12px;"><span class="badge upcoming">Upcoming</span></div>
-    </div>
-    <button class="btn-apply" disabled>Coming Soon</button>
-  </div>
-
-  <!-- HOW IT WORKS -->
-  <div class="how-section">
-    <h2>How the Audition Process Works</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h4>Apply Online</h4>
-        <p>Submit your application through the role's apply link or via our contact form.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h4>Initial Review</h4>
-        <p>Our team reviews all submissions and contacts shortlisted candidates within 2 weeks.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h4>Audition Call</h4>
-        <p>Shortlisted applicants are invited for an in-person or virtual audition session.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h4>Final Selection</h4>
-        <p>We contact chosen talent with next steps and onboarding details.</p>
-      </div>
-    </div>
-  </div>
 </main>
 
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div style="display:inline-block;background:#fff;border-radius:8px;padding:6px 10px;margin-bottom:14px;"><img src="logo.png" alt="Dashing Films" style="height:52px;width:auto;display:block;"/></div>
+      <div style="display:inline-block;background:#fff;border-radius:8px;padding:6px 10px;">
+        <img src="logo.png" alt="Dashing Films" style="height:52px;width:auto;display:block;"/>
+      </div>
       <p>Telling stories that matter — through films, series, and authentic human experiences.</p>
     </div>
     <div class="footer-col">
@@ -260,7 +186,7 @@
       </ul>
     </div>
     <div class="footer-col">
-            <h4>Follow Us</h4>
+      <h4>Follow Us</h4>
       <ul>
         <li><a href="https://youtube.com/@dashingfilmtv?si=etig1fv30F5bva_R" target="_blank" rel="noopener">YouTube</a></li>
         <li><a href="https://www.instagram.com/dashingfilmstv?igsh=MXBicG9yN2o1czh5cA==" target="_blank" rel="noopener">Instagram</a></li>
@@ -274,9 +200,6 @@
   <div class="footer-bottom">© 2026 Dashing Films. All Rights Reserved.</div>
 </footer>
 
-
-
-<!-- FIXED BOTTOM SOCIAL BAR -->
 <div class="social-bar">
   <a class="sb-youtube" href="https://youtube.com/@dashingfilmtv?si=etig1fv30F5bva_R" target="_blank" rel="noopener" aria-label="YouTube">
     <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -287,10 +210,10 @@
   <a class="sb-facebook" href="https://www.facebook.com/share/19U4waDBEb/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
     <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
   </a>
-  <a class="sb-tiktok" href="https://www.tiktok.com/@dashingfilmtv?_r=1&amp;_t=ZS-94Szw7mXbpF" target="_blank" rel="noopener" aria-label="TikTok">
+  <a class="sb-tiktok" href="https://www.tiktok.com/@dashingfilmtv" target="_blank" rel="noopener" aria-label="TikTok">
     <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
   </a>
-  <a class="sb-whatsapp" href="https://chat.whatsapp.com/Ki5wrC0XvCs0XEtM9LTDv2?mode=gi_t" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <a class="sb-whatsapp" href="https://chat.whatsapp.com/Ki5wrC0XvCs0XEtM9LTDv2" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
   </a>
   <a class="sb-linkedin" href="https://www.linkedin.com/company/dashing-films/" target="_blank" rel="noopener" aria-label="LinkedIn">
