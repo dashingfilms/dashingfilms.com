@@ -14,7 +14,7 @@
       --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--white); padding-bottom: 52px; }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text); background-color: #ffffff; background-image: none; padding-bottom: 52px; }
 
     /* NAV */
     nav {
@@ -36,8 +36,16 @@
 
     /* PAGE HERO */
     .page-hero {
-      margin-top: 70px; padding: 140px 40px; text-align: center;
-      background: url('about_hero.jpeg') center 30% / cover no-repeat; position: relative;
+      margin-top: 70px;
+      padding: 140px 40px;
+      text-align: center;
+      background-image: url('about_hero.jpeg');
+      background-position: center 30%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      position: relative;
+      width: 100%;
     }
     .page-hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #fff; margin-bottom: 12px; }
     .page-hero p { color: rgba(255,255,255,0.75); font-size: 1rem; }
