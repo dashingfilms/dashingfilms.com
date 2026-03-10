@@ -30,7 +30,7 @@
       background: rgba(26,26,26,0.97); backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px; height: 70px;
-      border-bottom: 2px solid var(--primary);
+      border-bottom: 2px solid #ffffff;
     }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 44px; width: auto; background: #fff; border-radius: 6px; padding: 3px 6px; }
@@ -113,22 +113,22 @@
     .btn-primary {
       display: inline-block;
       padding: clamp(8px, 1.5vw, 14px) clamp(20px, 3.5vw, 40px);
-      background: var(--gradient); color: #fff;
+      background: #fff; color: var(--charcoal);
       text-decoration: none; font-family: 'Montserrat', sans-serif;
       font-weight: 800; font-size: clamp(0.8rem, 1.5vw, 1rem);
       border-radius: 4px; letter-spacing: 1px;
       transition: transform 0.2s, box-shadow 0.2s;
       text-transform: uppercase;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,0,224,0.5); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
     .slider-btn {
       position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
-      background: rgba(192,0,224,0.55); border: none; color: #fff;
+      background: rgba(30,30,30,0.75); border: none; color: #fff;
       font-size: clamp(1rem, 2vw, 1.4rem);
       width: clamp(32px, 4.5vw, 46px); height: clamp(32px, 4.5vw, 46px);
       cursor: pointer; border-radius: 50%; transition: background 0.2s;
     }
-    .slider-btn:hover { background: var(--primary); }
+    .slider-btn:hover { background: rgba(50,50,50,0.95); }
     .slider-btn.prev { left: 12px; }
     .slider-btn.next { right: 12px; }
     .slider-dots {
@@ -143,7 +143,7 @@
     /* ── SECTIONS ── */
     section { padding: 80px 40px; }
     .section-title { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; color: var(--charcoal); margin-bottom: 48px; text-align: center; position: relative; }
-    .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--gradient); margin: 12px auto 0; border-radius: 2px; }
+    .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: #222; margin: 12px auto 0; border-radius: 2px; }
 
     /* ── NEWS ── */
     #news { background: var(--light-bg); }
@@ -157,34 +157,35 @@
     .news-meta { font-size: 0.8rem; color: var(--text-light); margin-bottom: 10px; display: flex; gap: 12px; }
     .news-card-body h3 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
     .news-card-body p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 14px; }
-    .read-more { font-size: 0.85rem; font-weight: 700; color: var(--primary); font-family: 'Montserrat', sans-serif; }
-    .see-all { display: block; text-align: center; margin-top: 8px; font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary); text-decoration: none; font-size: 1rem; }
-    .see-all:hover { color: var(--primary-dark); }
+    .read-more { font-size: 0.85rem; font-weight: 700; color: #222; font-family: 'Montserrat', sans-serif; }
+    .see-all { display: block; text-align: center; margin-top: 8px; font-family: 'Montserrat', sans-serif; font-weight: 700; color: #222; text-decoration: none; font-size: 1rem; }
+    .see-all:hover { color: #555; }
 
     /* ── PRODUCTIONS ── */
     #productions { background: var(--dark); }
     #productions .section-title { color: #fff; }
+    #productions .section-title::after { background: #fff; }
     .prod-slider { position: relative; max-width: 560px; margin: 0 auto; padding: 0 52px; }
     .prod-slider-viewport { overflow: visible; width: 100%; }
     .prod-card { width: 100%; border-radius: 12px; overflow: hidden; cursor: pointer; text-decoration: none; display: block; }
     .prod-card img { width: 100%; height: 280px; object-fit: cover; display: block; }
     .prod-dots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; flex-wrap: wrap; }
     .prod-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: background 0.3s; }
-    .prod-dot.active { background: var(--primary-light); }
+    .prod-dot.active { background: #fff; }
     .prod-card-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #3a006f, #c000e0); display: flex; align-items: center; justify-content: center; }
     .prod-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 40%, transparent); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
     .prod-badge { font-size: 0.7rem; font-weight: 700; background: var(--gradient); color: #fff; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 6px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
     .prod-title { color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 10px; }
     .prod-watch { color: var(--primary-light); font-size: 0.85rem; font-weight: 600; font-family: 'Montserrat', sans-serif; }
-    .prod-btn { background: rgba(192,0,224,0.6); border: none; color: #fff; font-size: 1.3rem; width: 44px; height: 44px; cursor: pointer; border-radius: 50%; transition: background 0.2s; position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; }
-    .prod-btn:hover { background: var(--primary); }
+    .prod-btn { background: #fff; border: none; color: #222; font-size: 1.3rem; width: 44px; height: 44px; cursor: pointer; border-radius: 50%; transition: background 0.2s; position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; }
+    .prod-btn:hover { background: #e0e0e0; color: #000; }
     .prod-btn.prev { left: 0; }
     .prod-btn.next { right: 0; }
 
     /* ── CONTACT ── */
     #contact { background: var(--light-bg); }
     .contact-wrap { max-width: 800px; margin: 0 auto; }
-    .contact-intro { text-align: center; color: var(--text-light); margin-bottom: 40px; font-size: 1rem; line-height: 1.7; }
+    .contact-intro { text-align: center; color: #222; margin-bottom: 40px; font-size: 1rem; line-height: 1.7; }
     .contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .contact-card {
       background: #fff; border-radius: 12px; padding: 36px 24px;
@@ -197,13 +198,13 @@
     .contact-label {
       font-family: 'Montserrat', sans-serif; font-weight: 700;
       font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px;
-      color: var(--primary); margin-bottom: 10px;
+      color: #222; margin-bottom: 10px;
     }
     .contact-value {
       font-size: 0.92rem; color: var(--text); line-height: 1.6;
       text-decoration: none; display: block; font-weight: 500;
     }
-    a.contact-value:hover { color: var(--primary); }
+    a.contact-value:hover { color: #555; }
     @media (max-width: 640px) { .contact-cards { grid-template-columns: 1fr; } }
 
     /* ── FAQ ── */
@@ -211,7 +212,7 @@
     .faq-list { max-width: 800px; margin: 0 auto; }
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 22px 0; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.98rem; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .faq-q::after { content: '+'; font-size: 1.4rem; color: var(--primary); transition: transform 0.3s; }
+    .faq-q::after { content: '+'; font-size: 1.4rem; color: #222; transition: transform 0.3s; }
     .faq-item.open .faq-q::after { transform: rotate(45deg); }
     .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
     .faq-a p { padding: 0 0 20px; color: var(--text-light); line-height: 1.7; font-size: 0.95rem; }
@@ -428,7 +429,7 @@
       <div class="contact-card">
         <div class="contact-icon">✉️</div>
         <div class="contact-label">Email</div>
-        <a href="/cdn-cgi/l/email-protection#442d2a222b6a2025372c2d2a23222d282937042329252d286a272b29" class="contact-value"><span class="__cf_email__" data-cfemail="9bf2f5fdf4b5fffae8f3f2f5fcfdf2f7f6e8dbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a>
+        <a href="mailto:info.dashingfilms@gmail.com" class="contact-value">info.dashingfilms@gmail.com</a>
       </div>
       <div class="contact-card">
         <div class="contact-icon">📞</div>
