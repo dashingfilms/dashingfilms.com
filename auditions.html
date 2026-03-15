@@ -33,7 +33,7 @@
       --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--white); padding-bottom: 60px; }
+    body { font-family: 'Open Sans', sans-serif; color: #222; background: #f0f0f0; padding-bottom: 60px; }
     nav {
       position: fixed; top: 0; width: 100%; z-index: 1000;
       background: rgba(26,26,26,0.97); backdrop-filter: blur(8px);
@@ -67,11 +67,11 @@
     .notify-strip strong { color: var(--primary-light); display: block; font-family: 'Montserrat', sans-serif; font-size: 1rem; margin-bottom: 6px; }
 
     /* OPEN */
-    .open-wrap { display: none; }
+    .open-wrap { display: block; }
     .open-badge { display: inline-block; padding: 6px 18px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase; background: #eafaf1; color: #27ae60; margin-bottom: 18px; }
-    .audition-header { border-left: 5px solid #333; padding: 28px 32px; background: var(--light-bg); border-radius: 0 10px 10px 0; margin-bottom: 40px; }
-    .audition-header h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--charcoal); margin-bottom: 10px; }
-    .audition-header p { color: var(--text-light); font-size: 0.95rem; line-height: 1.8; }
+    .audition-header { border-left: 5px solid #1a1a1a; padding: 28px 32px; background: #ffffff; border-radius: 0 10px 10px 0; margin-bottom: 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .audition-header h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem; color: #1a1a1a; margin-bottom: 10px; }
+    .audition-header p { color: #333; font-size: 0.95rem; line-height: 1.8; }
     .audition-meta { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; }
     .audition-meta span { font-size: 0.85rem; color: var(--text-light); font-weight: 600; }
     .pdf-section h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--charcoal); margin-bottom: 16px; }
@@ -169,7 +169,7 @@
     4. Upload your PDF to GitHub and update the src in the <iframe>
   ==============================================
   -->
-  <div class="closed-wrap">
+  <div class="closed-wrap" style="display:none;">
     <div class="closed-icon">🎬</div>
     <h2>No Auditions Open Right Now</h2>
     <p>We currently don't have any open audition calls. When we do, all the details and requirements will be posted right here — so check back soon!</p>
@@ -186,18 +186,107 @@
   -->
   <div class="open-wrap">
     <span class="open-badge">● Auditions Now Open</span>
-    <div class="audition-header">
-      <h2><!-- e.g. Audition Call – Upcoming Feature Film --></h2>
-      <p><!-- Short description of the production and what roles are available --></p>
-      <div class="audition-meta">
-        <span>📍 <!-- Location e.g. Lagos, Nigeria --></span>
-        <span>📅 Deadline: <!-- e.g. April 30, 2026 --></span>
+
+    <!-- MAIN CARD -->
+    <div style="background:#ffffff; border-radius:12px; padding:36px; margin-bottom:28px; box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+
+      <!-- TITLE -->
+      <p style="font-family:Montserrat,sans-serif; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#555; margin-bottom:4px;">A Dashing Films Production &nbsp;·&nbsp; Casting Call</p>
+      <h2 style="font-family:Montserrat,sans-serif; font-size:2rem; font-weight:900; color:#1a1a1a; margin-bottom:4px;">On Lagos Hills</h2>
+      <p style="font-size:0.95rem; color:#555; margin-bottom:20px;">Web Series &nbsp;·&nbsp; Youth Drama &nbsp;·&nbsp; Lagos, Nigeria</p>
+
+      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:24px;">Dashing Films is looking for talented actors — both rising and established — for our upcoming web series <strong>"On Lagos Hills."</strong> If you have the talent and the passion, this is your chance to be part of something exciting.</p>
+
+      <!-- META STRIP -->
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:32px;">
+        <span style="background:#f0f0f0; color:#222; font-size:0.85rem; font-weight:600; padding:8px 16px; border-radius:20px;">📍 Lagos, Nigeria</span>
+        <span style="background:#f0f0f0; color:#222; font-size:0.85rem; font-weight:600; padding:8px 16px; border-radius:20px;">📅 Deadline: 30th March 2026</span>
+        <span style="background:#f0f0f0; color:#222; font-size:0.85rem; font-weight:600; padding:8px 16px; border-radius:20px;">💰 Paid Roles</span>
+        <span style="background:#f0f0f0; color:#222; font-size:0.85rem; font-weight:600; padding:8px 16px; border-radius:20px;">🎭 Ages 18 and above</span>
       </div>
+
+      <!-- DIVIDER -->
+      <hr style="border:none; border-top:2px solid #eee; margin-bottom:28px;">
+
+      <!-- PROJECT OVERVIEW -->
+      <h3 style="font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:900; text-transform:uppercase; letter-spacing:1.5px; color:#1a1a1a; margin-bottom:14px;">Project Overview</h3>
+      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:12px;">On Lagos Hills follows the lives of three brothers and their younger sister trying to build meaningful lives in the restless and ever-moving city of Lagos.</p>
+      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:12px;">After the sudden death of their father, the siblings are forced to rely on one another more than ever before. Living together in a modest apartment on the outskirts of the city, they struggle to balance family loyalty, personal ambition, relationships, and the pressure to succeed in a city that never slows down.</p>
+      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:8px;"><strong>Each sibling carries a different dream.</strong></p>
+      <ul style="font-size:0.95rem; color:#222; line-height:2; padding-left:20px; margin-bottom:12px;">
+        <li>The eldest brother feels the weight of responsibility on his shoulders, trying to hold the family together while sacrificing parts of his own ambition.</li>
+        <li>The second brother is driven and restless, determined to break into Lagos' competitive business world, even if it means making difficult choices.</li>
+        <li>The youngest brother is still discovering who he is, caught between expectations and his own passion for creativity.</li>
+        <li>Their sister, sharp and resilient, is determined to prove that she is more than the "little one" of the family as she fights to carve her own path in a society that often underestimates her.</li>
+      </ul>
+      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:12px;">Through moments of joy, heartbreak, laughter, and conflict, <strong>On Lagos Hills</strong> explores the realities of modern Nigerian youth — ambition, survival, loyalty, and the constant question of how far one is willing to go to achieve their dreams.</p>
+      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:32px;">At its core, the story is about family, identity, and the courage to chase purpose in a city that challenges everyone who dares to dream.</p>
+
+      <!-- DIVIDER -->
+      <hr style="border:none; border-top:2px solid #eee; margin-bottom:28px;">
+
+      <!-- PRODUCTION DETAILS -->
+      <h3 style="font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:900; text-transform:uppercase; letter-spacing:1.5px; color:#1a1a1a; margin-bottom:16px;">Production Details</h3>
+      <table style="width:100%; border-collapse:collapse; font-size:0.93rem; margin-bottom:32px;">
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555; width:45%;">Production Company</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Dashing Films</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Shooting Location</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Lagos, Nigeria</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Format</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Short Film Series</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Genre</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Youth Drama</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Estimated Shoot Window</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Will be communicated to selected people</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Compensation</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Paid (based on role)</td></tr>
+        <tr><td style="padding:10px 0; color:#555;">Eligibility</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Applicants must be 18 years and above</td></tr>
+      </table>
+
+      <!-- DIVIDER -->
+      <hr style="border:none; border-top:2px solid #eee; margin-bottom:28px;">
+
+      <!-- AVAILABLE ROLES -->
+      <h3 style="font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:900; text-transform:uppercase; letter-spacing:1.5px; color:#1a1a1a; margin-bottom:10px;">Available Roles</h3>
+      <p style="font-size:0.95rem; color:#222; margin-bottom:16px;">We are casting several characters across multiple stories in the anthology.</p>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:32px;">
+        <div style="background:#f5f5f5; border-radius:10px; padding:20px; border-top:3px solid #1a1a1a;">
+          <p style="font-family:Montserrat,sans-serif; font-weight:900; font-size:0.95rem; color:#1a1a1a; margin-bottom:6px;">Lead Characters</p>
+          <p style="font-size:0.85rem; color:#444;">Male &amp; Female</p>
+          <p style="font-size:0.85rem; color:#444;">Ages 18–25</p>
+        </div>
+        <div style="background:#f5f5f5; border-radius:10px; padding:20px; border-top:3px solid #1a1a1a;">
+          <p style="font-family:Montserrat,sans-serif; font-weight:900; font-size:0.95rem; color:#1a1a1a; margin-bottom:6px;">Supporting Characters</p>
+          <p style="font-size:0.85rem; color:#444;">Male &amp; Female</p>
+          <p style="font-size:0.85rem; color:#444;">Ages 18–30</p>
+        </div>
+        <div style="background:#f5f5f5; border-radius:10px; padding:20px; border-top:3px solid #1a1a1a;">
+          <p style="font-family:Montserrat,sans-serif; font-weight:900; font-size:0.95rem; color:#1a1a1a; margin-bottom:6px;">Adult Roles</p>
+          <p style="font-size:0.85rem; color:#444;">Parents, Mentors</p>
+          <p style="font-size:0.85rem; color:#444;">Ages 30–55</p>
+        </div>
+      </div>
+
+      <!-- DIVIDER -->
+      <hr style="border:none; border-top:2px solid #eee; margin-bottom:28px;">
+
+      <!-- HOW TO AUDITION -->
+      <h3 style="font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:900; text-transform:uppercase; letter-spacing:1.5px; color:#1a1a1a; margin-bottom:16px;">How to Audition</h3>
+      <ol style="color:#222; font-size:0.95rem; line-height:2.2; padding-left:20px; margin-bottom:16px;">
+        <li>Download the audition packet from our website: <strong>www.dashingfilms.com/auditions</strong></li>
+        <li>Pick a character from the audition pack.</li>
+        <li>Record the character's monologue.</li>
+        <li>Post your audition video on <strong>Instagram</strong> or <strong>TikTok</strong>.</li>
+        <li>Use the hashtag <strong>#LagosHills</strong> and tag <strong>@dashingfilmstv</strong> in your caption.</li>
+      </ol>
+      <p style="font-size:0.9rem; color:#222; margin-bottom:4px;"><strong>Deadline:</strong> 30th March 2026</p>
+      <p style="font-size:0.9rem; color:#222; margin-bottom:28px;">For more information, visit: <strong>www.dashingfilms.com/auditions</strong></p>
+
+      <!-- DOWNLOAD BUTTON -->
+      <div style="text-align:center;">
+        <a href="audition_pack.pdf" download="Dashing_Films_Audition_Pack.pdf"
+          style="display:inline-block; background:#1a1a1a; color:#fff; font-family:Montserrat,sans-serif; font-weight:700; font-size:1rem; padding:16px 40px; border-radius:8px; text-decoration:none; letter-spacing:0.5px;">
+          ⬇ Download Audition Pack
+        </a>
+        <p style="color:#555; font-size:0.82rem; margin-top:10px;">PDF • Free Download</p>
+      </div>
+
     </div>
-    <div class="pdf-section">
-      <h3>Audition Requirements & Details</h3>
-      <iframe class="pdf-embed" src="<!-- e.g. audition_brief.pdf -->" title="Audition Details"></iframe>
-    </div>
+
   </div>
 
 </main>
