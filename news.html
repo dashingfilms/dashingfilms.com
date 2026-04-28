@@ -69,6 +69,12 @@
     .search-wrap input:focus { border-color: var(--primary); }
     .search-wrap svg { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; fill: #999; pointer-events: none; }
     .no-results { display: none; text-align: center; padding: 60px 20px; color: #999; font-size: 1rem; grid-column: 1/-1; }
+    .pagination { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 48px; flex-wrap: wrap; }
+    .pagination button { padding: 10px 20px; border: 2px solid var(--border); background: #fff; border-radius: 6px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; color: #333; }
+    .pagination button:hover { border-color: var(--primary); color: var(--primary); }
+    .pagination button.active { background: #1a1a1a; border-color: #1a1a1a; color: #fff; }
+    .pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+    .page-info { font-size: 0.85rem; color: #999; font-family: 'Montserrat', sans-serif; }
     .news-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; color: inherit; display: block; border: 1px solid var(--border); }
     .news-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(192,0,224,0.15); }
     .news-card-img-placeholder { width: 100%; height: 200px; background: var(--gradient); display: flex; align-items: center; justify-content: center; }
@@ -182,176 +188,87 @@
   <div style="position:relative;z-index:1;">
   <h1>Latest News</h1>
   <p>Stay updated with everything happening at Dashing Films</p>
-  </div>
-</div>
-
-<main>
-  <h2 class="section-title">All News</h2>
   <div class="search-wrap">
     <input type="text" id="searchInput" placeholder="Search articles..." oninput="filterArticles()"/>
     <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" stroke="#999" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
   </div>
 
-  <div class="news-grid" id="newsGrid">
-    <a class="news-card" href="/uchenna-ibe-discusses-his-role-as-production-assistant-in-dashing-films-chess-ahead-of-may-2-premiere">
-      <img src="uchenna-ibe-discusses-his-role-as-production-assistant-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg" alt="Uchenna Ibe" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 28, 2026</span><span>🕐 3 min read</span></div>
-        <h3>Uchenna Ibe Discusses His Role as Production Assistant in Dashing Films' "Chess"</h3>
-        <p>Production Assistant Uchenna Ibe shares what it took to support the Chess production from behind the scenes.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/anita-nwachi-discusses-her-role-as-lucy-in-dashing-films-chess-ahead-of-may-2-premiere">
-      <img src="anita-nwachi-discusses-her-role-as-lucy-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg" alt="Anita Nwachi" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 28, 2026</span><span>🕐 4 min read</span></div>
-        <h3>Anita Nwachi Discusses Her Role as Lucy in Dashing Films' "Chess"</h3>
-        <p>Actress Anita Nwachi opens up about Lucy — an ambitious young woman driven by a deep desire to prove herself.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/hassana-jimoh-ohunene-discusses-her-role-as-makeup-artist-in-dashing-films-chess-ahead-of-may-2-premiere">
-      <img src="hassana-jimoh-ohunene-discusses-her-role-as-makeup-artist-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg" alt="Hassana Jimoh Ohunene" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 28, 2026</span><span>🕐 4 min read</span></div>
-        <h3>Hassana Jimoh Ohunene Discusses Her Role as Makeup Artist in Dashing Films' "Chess"</h3>
-        <p>Makeup artist Hassana Jimoh Ohunene shares how she helped shape the visual identity of each character in Chess.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/michael-bar-discusses-his-role-as-production-manager-in-dashing-films-chess-ahead-of-may-2-premiere">
-      <img src="michael-bar-discusses-his-role-as-production-manager-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg" alt="Michael Bar" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 28, 2026</span><span>🕐 5 min read</span></div>
-        <h3>Michael Bar Discusses His Role as Production Manager in Dashing Films' "Chess"</h3>
-        <p>Production Manager Michael Bar shares the vision, execution strategy, and challenges behind bringing Chess to screen.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/anadoo-diamond-discusses-her-role-as-dami-in-dashing-films-chess-ahead-of-may-2-premiere">
-      <img src="anadoo-diamond-discusses-her-role-as-dami-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg" alt="Anadoo Diamond" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 28, 2026</span><span>🕐 4 min read</span></div>
-        <h3>Anadoo Diamond Discusses Her Role as Dami in Dashing Films' "Chess"</h3>
-        <p>Actress Anadoo Diamond opens up about Dami — a tough street girl shaped by family pain, love, and the strength to rise above her circumstances.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/bright-nwang-effiong-discusses-his-role-as-director-of-photography-in-dashing-films-chess-ahead-of-may-2-premiere">
-      <img src="bright-nwang-effiong-discusses-his-role-as-director-of-photography-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg" alt="Bright Nwang Effiong" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 28, 2026</span><span>🕐 4 min read</span></div>
-        <h3>Bright Nwang Effiong Discusses His Role as Director of Photography in Chess</h3>
-        <p>The Director of Photography behind Chess shares the visual strategy and behind-the-scenes challenges that shaped the series.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/eniturn-discusses-his-role-as-dubem-in-dashing-films-chess-ahead-of-may-2-premiere">
-      <img src="eniturn-discusses-his-role-as-dubem-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg" alt="Eniturn" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 27, 2026</span><span>🕐 4 min read</span></div>
-        <h3>Eniturn Discusses His Role as Dubem in Dashing Films' "Chess"</h3>
-        <p>Actor Eniturn opens up about his character Dubem and the suspense-filled world of the upcoming series Chess.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/chisom-ume-discusses-her-role-as-mandy-in-dashing-films-chess-ahead-of-may-2-premiere">
-      <img src="chisom-ume-discusses-her-role-as-mandy-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg" alt="Chisom Ume" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 27, 2026</span><span>🕐 4 min read</span></div>
-        <h3>Chisom Ume Discusses Her Role as Mandy in Dashing Films' "Chess"</h3>
-        <p>Actress Chisom Ume shares the emotional depth behind Mandy — a story of love, betrayal, and bold decisions.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/paul-word-discusses-his-role-as-dennis-in-dashing-films-chess-ahead-of-premiere">
-      <img src="paul-word-discusses-his-role-as-dennis-in-dashing-films-chess-ahead-of-premiere.jpeg" alt="Paul Word" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 27, 2026</span><span>🕐 4 min read</span></div>
-        <h3>Paul Word Discusses His Role as Dennis in Dashing Films' "Chess"</h3>
-        <p>Actor Paul Word reveals how trust and unresolved emotions define his character Dennis in Chess.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/lam-chris-discusses-his-role-as-raymond-in-dashing-films-chess-ahead-of-may-2-premiere">
-      <img src="lam-chris-discusses-his-role-as-raymond-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg" alt="Lam Chris" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 27, 2026</span><span>🕐 5 min read</span></div>
-        <h3>Lam Chris Discusses His Role as Raymond in Dashing Films' "Chess"</h3>
-        <p>Actor Lam Chris unpacks the layers of Raymond — one of the most complex and strategic characters in Chess.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/miriam-ogbonna-discusses-her-role-as-grace-in-dashing-films-chess">
-      <img src="miriam-ogbonna-discusses-her-role-as-grace-in-dashing-films-chess.jpeg" alt="Miriam Ogbonna" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 27, 2026</span><span>🕐 4 min read</span></div>
-        <h3>Miriam Ogbonna Discusses Her Role as Grace in Dashing Films' "Chess"</h3>
-        <p>Actress Miriam Ogbonna opens up about her character Grace and the emotional depth behind the role in Chess.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/ugegbe-discusses-his-role-in-dashing-films-chess-ahead-of-may-2-premiere">
-      <img src="ugegbe-discusses-his-role-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg" alt="Ugegbe" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 April 27, 2026</span><span>🕐 4 min read</span></div>
-        <h3>Ugegbe Discusses His Role in Dashing Films' "Chess" Ahead of May 2 Premiere</h3>
-        <p>Actor Ugegbe shares his experience on the Chess production and the charm, comedy, and purpose behind his character.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/blog_on_lagos_hills_casting">
-      <img src="on_lagos_hills_casting.jpeg" alt="On Lagos Hills Casting Call" style="width:100%;height:200px;object-fit:cover;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 March 15, 2026</span><span>🕐 4 min read</span></div>
-        <h3>Casting Call: On Lagos Hills Web Series</h3>
-        <p>Dashing Films invites talented actors — both rising and established — to audition for our exciting upcoming web series.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <a class="news-card" href="/blog_two_weeks_with_muna">
-      <img src="two_weeks_with_muna.jpg" alt="Two Weeks With Muna" style="width:100%;height:200px;object-fit:cover;display:block;"/>
-      <div class="news-card-body">
-        <div class="news-meta"><span>📅 March 8, 2026</span><span>🕐 6 min read</span></div>
-        <h3>"Two Weeks With Muna" Surpasses 1.8 Million Views on YouTube</h3>
-        <p>A remarkable milestone for one of our most beloved productions — a testament to the power of authentic storytelling.</p>
-        <span class="read-more">Read More</span>
-      </div>
-    </a>
-
-    <div class="no-results" id="noResults">No articles found. Try a different search.</div>
-  </div>
+  <div class="news-grid" id="newsGrid"></div>
+  <div class="pagination" id="pagination"></div>
 
   <script>
-    function filterArticles() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('#newsGrid .news-card');
-      let visible = 0;
-      cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        if (text.includes(query)) {
-          card.style.display = 'block';
-          visible++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-      document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+    const articles = [
+      { slug: "bright-effiong-brisky-discusses-his-role-as-second-camera-operator-in-dashing-films-chess-ahead-of-may-2-premiere", img: "bright-effiong-brisky-discusses-his-role-as-second-camera-operator-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 28, 2026", read: "4 min read", title: "Bright Effiong (Brisky) Discusses His Role as Second Camera Operator in Dashing Films' \"Chess\"", excerpt: "Second Camera Operator Brisky shares his contribution to the visual storytelling and the themes that drove his lens decisions on Chess." },
+      { slug: "jerry-mudiaga-discusses-his-role-as-alex-in-dashing-films-chess-ahead-of-may-2-premiere", img: "jerry-mudiaga-discusses-his-role-as-alex-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 28, 2026", read: "4 min read", title: "Jerry Mudiaga Discusses His Role as Alex in Dashing Films' \"Chess\"", excerpt: "Actor Jerry Mudiaga opens up about Alex — a character still unfolding, with deeper revelations expected as the series progresses." },
+      { slug: "uchenna-ibe-discusses-his-role-as-production-assistant-in-dashing-films-chess-ahead-of-may-2-premiere", img: "uchenna-ibe-discusses-his-role-as-production-assistant-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 28, 2026", read: "3 min read", title: "Uchenna Ibe Discusses His Role as Production Assistant in Dashing Films' \"Chess\"", excerpt: "Production Assistant Uchenna Ibe shares what it took to support the Chess production from behind the scenes." },
+      { slug: "anita-nwachi-discusses-her-role-as-lucy-in-dashing-films-chess-ahead-of-may-2-premiere", img: "anita-nwachi-discusses-her-role-as-lucy-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 28, 2026", read: "4 min read", title: "Anita Nwachi Discusses Her Role as Lucy in Dashing Films' \"Chess\"", excerpt: "Actress Anita Nwachi opens up about Lucy — an ambitious young woman driven by a deep desire to prove herself." },
+      { slug: "hassana-jimoh-ohunene-discusses-her-role-as-makeup-artist-in-dashing-films-chess-ahead-of-may-2-premiere", img: "hassana-jimoh-ohunene-discusses-her-role-as-makeup-artist-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 28, 2026", read: "4 min read", title: "Hassana Jimoh Ohunene Discusses Her Role as Makeup Artist in Dashing Films' \"Chess\"", excerpt: "Makeup artist Hassana Jimoh Ohunene shares how she helped shape the visual identity of each character in Chess." },
+      { slug: "michael-bar-discusses-his-role-as-production-manager-in-dashing-films-chess-ahead-of-may-2-premiere", img: "michael-bar-discusses-his-role-as-production-manager-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 28, 2026", read: "5 min read", title: "Michael Bar Discusses His Role as Production Manager in Dashing Films' \"Chess\"", excerpt: "Production Manager Michael Bar shares the vision, execution strategy, and challenges behind bringing Chess to screen." },
+      { slug: "anadoo-diamond-discusses-her-role-as-dami-in-dashing-films-chess-ahead-of-may-2-premiere", img: "anadoo-diamond-discusses-her-role-as-dami-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 28, 2026", read: "4 min read", title: "Anadoo Diamond Discusses Her Role as Dami in Dashing Films' \"Chess\"", excerpt: "Actress Anadoo Diamond opens up about Dami — a tough street girl shaped by family pain, love, and the strength to rise above her circumstances." },
+      { slug: "bright-nwang-effiong-discusses-his-role-as-director-of-photography-in-dashing-films-chess-ahead-of-may-2-premiere", img: "bright-nwang-effiong-discusses-his-role-as-director-of-photography-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 28, 2026", read: "4 min read", title: "Bright Nwang Effiong Discusses His Role as Director of Photography in Chess", excerpt: "The Director of Photography behind Chess shares the visual strategy and behind-the-scenes challenges that shaped the series." },
+      { slug: "eniturn-discusses-his-role-as-dubem-in-dashing-films-chess-ahead-of-may-2-premiere", img: "eniturn-discusses-his-role-as-dubem-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 27, 2026", read: "4 min read", title: "Eniturn Discusses His Role as Dubem in Dashing Films' \"Chess\"", excerpt: "Actor Eniturn opens up about his character Dubem and the suspense-filled world of the upcoming series Chess." },
+      { slug: "chisom-ume-discusses-her-role-as-mandy-in-dashing-films-chess-ahead-of-may-2-premiere", img: "chisom-ume-discusses-her-role-as-mandy-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 27, 2026", read: "4 min read", title: "Chisom Ume Discusses Her Role as Mandy in Dashing Films' \"Chess\"", excerpt: "Actress Chisom Ume shares the emotional depth behind Mandy — a story of love, betrayal, and bold decisions." },
+      { slug: "paul-word-discusses-his-role-as-dennis-in-dashing-films-chess-ahead-of-premiere", img: "paul-word-discusses-his-role-as-dennis-in-dashing-films-chess-ahead-of-premiere.jpeg", date: "April 27, 2026", read: "4 min read", title: "Paul Word Discusses His Role as Dennis in Dashing Films' \"Chess\"", excerpt: "Actor Paul Word reveals how trust and unresolved emotions define his character Dennis in Chess." },
+      { slug: "lam-chris-discusses-his-role-as-raymond-in-dashing-films-chess-ahead-of-may-2-premiere", img: "lam-chris-discusses-his-role-as-raymond-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 27, 2026", read: "5 min read", title: "Lam Chris Discusses His Role as Raymond in Dashing Films' \"Chess\"", excerpt: "Actor Lam Chris unpacks the layers of Raymond — one of the most complex and strategic characters in Chess." },
+      { slug: "miriam-ogbonna-discusses-her-role-as-grace-in-dashing-films-chess", img: "miriam-ogbonna-discusses-her-role-as-grace-in-dashing-films-chess.jpeg", date: "April 27, 2026", read: "4 min read", title: "Miriam Ogbonna Discusses Her Role as Grace in Dashing Films' \"Chess\"", excerpt: "Actress Miriam Ogbonna opens up about her character Grace and the emotional depth behind the role in Chess." },
+      { slug: "ugegbe-discusses-his-role-in-dashing-films-chess-ahead-of-may-2-premiere", img: "ugegbe-discusses-his-role-in-dashing-films-chess-ahead-of-may-2-premiere.jpeg", date: "April 27, 2026", read: "4 min read", title: "Ugegbe Discusses His Role in Dashing Films' \"Chess\" Ahead of May 2 Premiere", excerpt: "Actor Ugegbe shares his experience on the Chess production and the charm, comedy, and purpose behind his character." },
+      { slug: "blog_on_lagos_hills_casting", img: "on_lagos_hills_casting.jpeg", date: "March 15, 2026", read: "4 min read", title: "Casting Call: On Lagos Hills Web Series", excerpt: "Dashing Films invites talented actors — both rising and established — to audition for our exciting upcoming web series." },
+      { slug: "blog_two_weeks_with_muna", img: "two_weeks_with_muna.jpg", date: "March 8, 2026", read: "6 min read", title: "\"Two Weeks With Muna\" Surpasses 1.8 Million Views on YouTube", excerpt: "A remarkable milestone for one of our most beloved productions — a testament to the power of authentic storytelling." }
+    ];
+
+    const PER_PAGE = 10;
+    let currentPage = 1;
+    let filtered = [...articles];
+
+    function cardHTML(a) {
+      return `<a class="news-card" href="/${a.slug}">
+        <img src="${a.img}" alt="${a.title}" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;"/>
+        <div class="news-card-body">
+          <div class="news-meta"><span>📅 ${a.date}</span><span>🕐 ${a.read}</span></div>
+          <h3>${a.title}</h3>
+          <p>${a.excerpt}</p>
+          <span class="read-more">Read More</span>
+        </div>
+      </a>`;
     }
+
+    function render() {
+      const grid = document.getElementById('newsGrid');
+      const pagination = document.getElementById('pagination');
+      const totalPages = Math.ceil(filtered.length / PER_PAGE);
+      const start = (currentPage - 1) * PER_PAGE;
+      const pageItems = filtered.slice(start, start + PER_PAGE);
+
+      if (pageItems.length === 0) {
+        grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#999;">No articles found. Try a different search.</div>';
+        pagination.innerHTML = '';
+        return;
+      }
+
+      grid.innerHTML = pageItems.map(cardHTML).join('');
+
+      // Pagination controls
+      let pHTML = '';
+      pHTML += `<button onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>← Older</button>`;
+      pHTML += `<span class="page-info">Page ${currentPage} of ${totalPages}</span>`;
+      pHTML += `<button onclick="goPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>Newer →</button>`;
+      pagination.innerHTML = pHTML;
+    }
+
+    function goPage(p) {
+      currentPage = p;
+      render();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    function filterArticles() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      filtered = q ? articles.filter(a => (a.title + a.excerpt).toLowerCase().includes(q)) : [...articles];
+      currentPage = 1;
+      render();
+    }
+
+    render();
   </script>
 </main>
 
