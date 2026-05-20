@@ -161,15 +161,10 @@
 
   <!--
   ==============================================
-  CLOSED STATE (currently shown)
-  When auditions open:
-    1. Add  style="display:none"  to .closed-wrap div
-    2. Change  display:none  to  display:block  on .open-wrap div
-    3. Fill in the title, description, location, deadline
-    4. Upload your PDF to GitHub and update the src in the <iframe>
+  CLOSED STATE (Hidden when auditions are live)
   ==============================================
   -->
-  <div class="closed-wrap">
+  <div class="closed-wrap" style="display:none;">
     <div class="closed-icon">🎬</div>
     <h2>No Auditions Open Right Now</h2>
     <p>We currently don't have any open audition calls. When we do, all the details and requirements will be posted right here — so check back soon!</p>
@@ -181,10 +176,10 @@
 
   <!--
   ==============================================
-  OPEN STATE (hidden until auditions are live)
+  OPEN STATE (Currently active and visible)
   ==============================================
   -->
-  <div class="open-wrap" style="display:none;">
+  <div class="open-wrap" style="display:block;">
     <span class="open-badge">● Auditions Now Open</span>
 
     <!-- MAIN CARD -->
@@ -192,16 +187,16 @@
 
       <!-- TITLE -->
       <p style="font-family:Montserrat,sans-serif; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#555; margin-bottom:4px;">A Dashing Films Production &nbsp;·&nbsp; Casting Call</p>
-      <h2 style="font-family:Montserrat,sans-serif; font-size:2rem; font-weight:900; color:#1a1a1a; margin-bottom:4px;">On Lagos Hills</h2>
-      <p style="font-size:0.95rem; color:#555; margin-bottom:20px;">Web Series &nbsp;·&nbsp; Youth Drama &nbsp;·&nbsp; Lagos, Nigeria</p>
+      <h2 style="font-family:Montserrat,sans-serif; font-size:2rem; font-weight:900; color:#1a1a1a; margin-bottom:4px;">When Love Collides</h2>
+      <p style="font-size:0.95rem; color:#555; margin-bottom:20px;">Feature Film &nbsp;·&nbsp; Romance / Drama &nbsp;·&nbsp; Nigeria</p>
 
-      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:24px;">Dashing Films is looking for talented actors — both rising and established — for our upcoming web series <strong>"On Lagos Hills."</strong> If you have the talent and the passion, this is your chance to be part of something exciting.</p>
+      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:24px;">Are you ready to bring a powerful new story to life? Dashing Films is officially searching for both new and experienced talent for our upcoming feature film, <strong>"When Love Collides."</strong> If you are 18 or older and ready to showcase your range, we want to see your audition.</p>
 
       <!-- META STRIP -->
       <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:32px;">
-        <span style="background:#f0f0f0; color:#222; font-size:0.85rem; font-weight:600; padding:8px 16px; border-radius:20px;">📍 Lagos, Nigeria</span>
-        <span style="background:#f0f0f0; color:#222; font-size:0.85rem; font-weight:600; padding:8px 16px; border-radius:20px;">📅 Deadline: 30th March 2026</span>
-        <span style="background:#f0f0f0; color:#222; font-size:0.85rem; font-weight:600; padding:8px 16px; border-radius:20px;">💰 Paid Roles</span>
+        <span style="background:#f0f0f0; color:#222; font-size:0.85rem; font-weight:600; padding:8px 16px; border-radius:20px;">📍 Lagos, Western &amp; Eastern Nigeria</span>
+        <span style="background:#ffeded; color:#eb5757; font-size:0.85rem; font-weight:700; padding:8px 16px; border-radius:20px;">📅 Closes: 31st May 2026</span>
+        <span style="background:#f0f0f0; color:#222; font-size:0.85rem; font-weight:600; padding:8px 16px; border-radius:20px;">💰 Paid Production</span>
         <span style="background:#f0f0f0; color:#222; font-size:0.85rem; font-weight:600; padding:8px 16px; border-radius:20px;">🎭 Ages 18 and above</span>
       </div>
 
@@ -209,18 +204,8 @@
       <hr style="border:none; border-top:2px solid #eee; margin-bottom:28px;">
 
       <!-- PROJECT OVERVIEW -->
-      <h3 style="font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:900; text-transform:uppercase; letter-spacing:1.5px; color:#1a1a1a; margin-bottom:14px;">Project Overview</h3>
-      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:12px;">On Lagos Hills follows the lives of three brothers and their younger sister trying to build meaningful lives in the restless and ever-moving city of Lagos.</p>
-      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:12px;">After the sudden death of their father, the siblings are forced to rely on one another more than ever before. Living together in a modest apartment on the outskirts of the city, they struggle to balance family loyalty, personal ambition, relationships, and the pressure to succeed in a city that never slows down.</p>
-      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:8px;"><strong>Each sibling carries a different dream.</strong></p>
-      <ul style="font-size:0.95rem; color:#222; line-height:2; padding-left:20px; margin-bottom:12px;">
-        <li>The eldest brother feels the weight of responsibility on his shoulders, trying to hold the family together while sacrificing parts of his own ambition.</li>
-        <li>The second brother is driven and restless, determined to break into Lagos' competitive business world, even if it means making difficult choices.</li>
-        <li>The youngest brother is still discovering who he is, caught between expectations and his own passion for creativity.</li>
-        <li>Their sister, sharp and resilient, is determined to prove that she is more than the "little one" of the family as she fights to carve her own path in a society that often underestimates her.</li>
-      </ul>
-      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:12px;">Through moments of joy, heartbreak, laughter, and conflict, <strong>On Lagos Hills</strong> explores the realities of modern Nigerian youth — ambition, survival, loyalty, and the constant question of how far one is willing to go to achieve their dreams.</p>
-      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:32px;">At its core, the story is about family, identity, and the courage to chase purpose in a city that challenges everyone who dares to dream.</p>
+      <h3 style="font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:900; text-transform:uppercase; letter-spacing:1.5px; color:#1a1a1a; margin-bottom:14px;">The Story</h3>
+      <p style="font-size:0.95rem; color:#222; line-height:1.9; margin-bottom:32px;">When Bianca, a reckless young Lagosian, pushes her older brother too far, she gets exiled to the village as punishment. There, she collides with Chike, a brilliant but stifled local musician. What follows is a beautiful journey of love, forgiveness, defiance, and self-discovery.</p>
 
       <!-- DIVIDER -->
       <hr style="border:none; border-top:2px solid #eee; margin-bottom:28px;">
@@ -229,60 +214,75 @@
       <h3 style="font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:900; text-transform:uppercase; letter-spacing:1.5px; color:#1a1a1a; margin-bottom:16px;">Production Details</h3>
       <table style="width:100%; border-collapse:collapse; font-size:0.93rem; margin-bottom:32px;">
         <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555; width:45%;">Production Company</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Dashing Films</td></tr>
-        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Shooting Location</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Lagos, Nigeria</td></tr>
-        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Format</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Short Film Series</td></tr>
-        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Genre</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Youth Drama</td></tr>
-        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Estimated Shoot Window</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Will be communicated to selected people</td></tr>
-        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Compensation</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Paid (based on role)</td></tr>
-        <tr><td style="padding:10px 0; color:#555;">Eligibility</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Applicants must be 18 years and above</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Lagos and stunning rural settings across Western &amp; Eastern Nigeria</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Format</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Feature Film</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Genre</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Romance / Drama</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 0; color:#555;">Audition Timeline</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Opens 20th May 2026 – Closes 31st May 2026</td></tr>
+        <tr><td style="padding:10px 0; color:#555;">Compensation</td><td style="padding:10px 0; color:#1a1a1a; font-weight:600;">Paid Production</td></tr>
       </table>
 
       <!-- DIVIDER -->
       <hr style="border:none; border-top:2px solid #eee; margin-bottom:28px;">
 
       <!-- AVAILABLE ROLES -->
-      <h3 style="font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:900; text-transform:uppercase; letter-spacing:1.5px; color:#1a1a1a; margin-bottom:10px;">Available Roles</h3>
-      <p style="font-size:0.95rem; color:#222; margin-bottom:16px;">We are casting several characters across multiple stories in the anthology.</p>
+      <h3 style="font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:900; text-transform:uppercase; letter-spacing:1.5px; color:#1a1a1a; margin-bottom:16px;">Available Roles</h3>
+      
+      <!-- Lead Roles Breakout -->
+      <h4 style="font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:800; text-transform:uppercase; color:var(--primary); margin-bottom:12px; letter-spacing:0.5px;">Lead Roles</h4>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:24px;">
+        <div style="background:#fdf6fe; border-radius:10px; padding:20px; border-top:3px solid var(--primary);">
+          <p style="font-family:Montserrat,sans-serif; font-weight:900; font-size:0.95rem; color:#1a1a1a; margin-bottom:6px;">BIANCA</p>
+          <p style="font-size:0.85rem; color:#444; margin-bottom:8px;"><strong>Female (Playing Age: 25–28)</strong></p>
+          <p style="font-size:0.85rem; color:#555; line-height:1.6;">Vibrant, sharp-tongued, and fiercely stubborn. Goes from a spoiled city girl to a deeply empathetic pillar of support. Requires excellent emotional range (comedy to deep vulnerability).</p>
+        </div>
+        <div style="background:#fdf6fe; border-radius:10px; padding:20px; border-top:3px solid var(--primary);">
+          <p style="font-family:Montserrat,sans-serif; font-weight:900; font-size:0.95rem; color:#1a1a1a; margin-bottom:6px;">CHIKE</p>
+          <p style="font-size:0.85rem; color:#444; margin-bottom:8px;"><strong>Male (Playing Age: 25–30)</strong></p>
+          <p style="font-size:0.85rem; color:#555; line-height:1.6;">Soulful, introverted, and brilliantly talented. Torn between duty to his strict mother and his burning passion for music. <em>(Note: Ability to sing and play guitar/keyboard is a major plus.)</em></p>
+        </div>
+      </div>
+
+      <!-- Supporting Roles Breakout -->
+      <h4 style="font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:800; text-transform:uppercase; color:#1a1a1a; margin-bottom:12px; letter-spacing:0.5px;">Supporting &amp; Additional Roles</h4>
       <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:32px;">
-        <div style="background:#f5f5f5; border-radius:10px; padding:20px; border-top:3px solid #1a1a1a;">
-          <p style="font-family:Montserrat,sans-serif; font-weight:900; font-size:0.95rem; color:#1a1a1a; margin-bottom:6px;">Lead Characters</p>
-          <p style="font-size:0.85rem; color:#444;">Male &amp; Female</p>
-          <p style="font-size:0.85rem; color:#444;">Ages 18–25</p>
+        <div style="background:#f5f5f5; border-radius:10px; padding:20px; border-top:3px solid #333;">
+          <p style="font-family:Montserrat,sans-serif; font-weight:900; font-size:0.9rem; color:#1a1a1a; margin-bottom:6px;">THE BROTHER</p>
+          <p style="font-size:0.8rem; color:#444; margin-bottom:4px;">Male (Playing Age: 31–35)</p>
+          <p style="font-size:0.8rem; color:#666; line-height:1.5;">Mature, hardworking, and exhausted provider pushed past his breaking point.</p>
         </div>
-        <div style="background:#f5f5f5; border-radius:10px; padding:20px; border-top:3px solid #1a1a1a;">
-          <p style="font-family:Montserrat,sans-serif; font-weight:900; font-size:0.95rem; color:#1a1a1a; margin-bottom:6px;">Supporting Characters</p>
-          <p style="font-size:0.85rem; color:#444;">Male &amp; Female</p>
-          <p style="font-size:0.85rem; color:#444;">Ages 18–30</p>
+        <div style="background:#f5f5f5; border-radius:10px; padding:20px; border-top:3px solid #333;">
+          <p style="font-family:Montserrat,sans-serif; font-weight:900; font-size:0.9rem; color:#1a1a1a; margin-bottom:6px;">THE MOTHER</p>
+          <p style="font-size:0.8rem; color:#444; margin-bottom:4px;">Female (Playing Age: 45–55)</p>
+          <p style="font-size:0.8rem; color:#666; line-height:1.5;">Strict, traditional, and protective. Looking for a powerful dramatic actress.</p>
         </div>
-        <div style="background:#f5f5f5; border-radius:10px; padding:20px; border-top:3px solid #1a1a1a;">
-          <p style="font-family:Montserrat,sans-serif; font-weight:900; font-size:0.95rem; color:#1a1a1a; margin-bottom:6px;">Adult Roles</p>
-          <p style="font-size:0.85rem; color:#444;">Parents, Mentors</p>
-          <p style="font-size:0.85rem; color:#444;">Ages 30–55</p>
+        <div style="background:#f5f5f5; border-radius:10px; padding:20px; border-top:3px solid #333;">
+          <p style="font-family:Montserrat,sans-serif; font-weight:900; font-size:0.9rem; color:#1a1a1a; margin-bottom:6px;">THE GRANDMOTHER</p>
+          <p style="font-size:0.8rem; color:#444; margin-bottom:4px;">Female (Playing Age: 60+)</p>
+          <p style="font-size:0.8rem; color:#666; line-height:1.5;">Warm, wise, and grounded; uses tough love and ancient wisdom.</p>
+        </div>
+      </div>
+
+      <!-- Extras Strip -->
+      <div style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:32px;">
+        <div style="flex:1; background:#f9f9f9; padding:14px 20px; border-radius:8px; border-left:3px solid #ccc; font-size:0.88rem;">
+          <strong>Village Youths / City Friends:</strong> Ages 18–30
+        </div>
+        <div style="flex:1; background:#f9f9f9; padding:14px 20px; border-radius:8px; border-left:3px solid #ccc; font-size:0.88rem;">
+          <strong>Village Elders / Professionals:</strong> Ages 30–55
         </div>
       </div>
 
       <!-- DIVIDER -->
       <hr style="border:none; border-top:2px solid #eee; margin-bottom:28px;">
 
-      <!-- HOW TO AUDITION -->
-      <h3 style="font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:900; text-transform:uppercase; letter-spacing:1.5px; color:#1a1a1a; margin-bottom:16px;">How to Audition</h3>
-      <ol style="color:#222; font-size:0.95rem; line-height:2.2; padding-left:20px; margin-bottom:16px;">
-        <li>Download the audition packet from our website: <strong>www.dashingfilms.com/auditions</strong></li>
-        <li>Pick a character from the audition pack.</li>
-        <li>Record the character's monologue.</li>
-        <li>Post your audition video on <strong>Instagram</strong> or <strong>TikTok</strong>.</li>
-        <li>Use the hashtag <strong>#LagosHills</strong> and tag <strong>@dashingfilmstv</strong> in your caption.</li>
-      </ol>
-      <p style="font-size:0.9rem; color:#222; margin-bottom:4px;"><strong>Deadline:</strong> 30th March 2026</p>
-      <p style="font-size:0.9rem; color:#222; margin-bottom:28px;">For more information, visit: <strong>www.dashingfilms.com/auditions</strong></p>
-
       <!-- DOWNLOAD BUTTON -->
-      <div style="text-align:center;">
-        <a href="audition_pack.pdf" download="Dashing_Films_Audition_Pack.pdf"
-          style="display:inline-block; background:#1a1a1a; color:#fff; font-family:Montserrat,sans-serif; font-weight:700; font-size:1rem; padding:16px 40px; border-radius:8px; text-decoration:none; letter-spacing:0.5px;">
+      <div style="text-align:center; background:#fafafa; padding:32px; border-radius:10px; border:1px dashed var(--border);">
+        <a href="./Audition_Packet.pdf" download="When_Love_Collides_Audition_Pack.pdf"
+          style="display:inline-block; background:#1a1a1a; color:#fff; font-family:Montserrat,sans-serif; font-weight:700; font-size:1rem; padding:16px 40px; border-radius:8px; text-decoration:none; letter-spacing:0.5px; transition: background 0.2s;">
           ⬇ Download Audition Pack
         </a>
-        <p style="color:#555; font-size:0.82rem; margin-top:10px;">PDF • Free Download</p>
+        <p style="color:#666; font-size:0.82rem; margin-top:12px;">PDF Format • Setup instructions and character monologues included</p>
+        <p style="color:#eb5757; font-size:0.85rem; font-weight:700; margin-top:8px;">Submissions Close: 31st May 2026</p>
       </div>
 
     </div>
